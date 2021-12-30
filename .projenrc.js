@@ -26,7 +26,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
 });
 project.addGitIgnore('.awsprofile');
 project.addGitIgnore('.envrc');
-project.addGitIgnore('**/.projen');
 project.addGitIgnore('tsconfig.json');
 project.addGitIgnore('**/cdk.out');
 project.addGitIgnore('**/*.js');
