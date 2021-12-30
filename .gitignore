@@ -35,12 +35,6 @@ jspm_packages/
 /test-reports/
 junit.xml
 /coverage/
-!/.github/workflows/build.yml
-/dist/changelog.md
-/dist/version.txt
-!/.github/workflows/release.yml
-!/.mergify.yml
-!/.github/pull_request_template.md
 !/test/
 !/tsconfig.dev.json
 !/src/
@@ -53,4 +47,4 @@ tsconfig.json
 .awsprofile
 .envrc
 cdk.out/
-!/.github/workflows/upgrade-main.yml
+!/.github/workflows/upgrade.yml
