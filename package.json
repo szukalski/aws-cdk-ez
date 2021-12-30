@@ -14,6 +14,7 @@
     "docgen": "npx projen docgen",
     "eslint": "npx projen eslint",
     "package": "npx projen package",
+    "package-all": "npx projen package-all",
     "post-compile": "npx projen post-compile",
     "pre-compile": "npx projen pre-compile",
     "release": "npx projen release",
@@ -47,7 +48,6 @@
     "jsii": "^1.50.0",
     "jsii-diff": "^1.50.0",
     "jsii-docgen": "^4.2.25",
-    "jsii-pacmak": "^1.50.0",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^12",
     "projen": "^0.47.12",
@@ -59,12 +59,11 @@
     "aws-cdk-lib": "^2.1.0",
     "constructs": "^10.0.5"
   },
-  "bundledDependencies": [],
   "keywords": [
     "cdk"
   ],
   "main": "lib/index.js",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "version": "0.0.0",
   "jest": {
     "testMatch": [

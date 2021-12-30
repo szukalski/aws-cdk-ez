@@ -5,7 +5,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   cdkVersion: '2.1.0',
   defaultReleaseBranch: 'main',
   name: 'aws-cdk-ez',
+  license: 'MIT',
   repositoryUrl: 'git@github.com:szukalski/aws-cdk-ez.git',
+  npmDistTag: 'latest',
+  releaseToNpm: false,
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
@@ -13,4 +16,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // packageName: undefined,  /* The "name" in package.json. */
   // release: undefined,      /* Add release management to this project. */
 });
+project.addGitIgnore('.awsprofile');
+project.addGitIgnore('.envrc');
+project.addGitIgnore('cdk.out/');
 project.synth();
