@@ -15,7 +15,7 @@ export interface IEzVpcProps {
 
   /**
    * The CIDR mask to use for subnets in the VPC
-   * 
+   *
    * The same mask is used for all subnets
    *
    * @default - 28
@@ -38,7 +38,7 @@ export interface IEzVpcProps {
 
   /**
    * Whether to create a public subnet
-   * 
+   *
    * If true, then an Internet Gateway will be created
    *
    * @default - false
@@ -47,7 +47,7 @@ export interface IEzVpcProps {
 
   /**
    * Whether to create private NAT subnets
-   * 
+   *
    * If true, then public subnets will also be created, with a NAT Gateway per AZ
    *
    * @default - false
@@ -56,7 +56,7 @@ export interface IEzVpcProps {
 
   /**
    * Whether to create private isolated subnets
-   * 
+   *
    *
    * @default - false
    */
@@ -72,9 +72,9 @@ export interface IEzVpcProps {
 
 /**
  * A VPC
- * 
+ *
  * If no props are provided, or no subnet creation specified, then a VPC with isolated subnets is created.
- * 
+ *
  */
 export class EzVpc extends Construct {
   public readonly vpc: Vpc;
