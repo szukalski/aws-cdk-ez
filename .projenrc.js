@@ -4,7 +4,7 @@ const disableGithub = {
   releaseWorkflow: false,
   pullRequestTemplate: false,
   dependabot: false,
-  mergify: false
+  mergify: false,
 };
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'David Roberts',
@@ -26,5 +26,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
 });
 project.addGitIgnore('.awsprofile');
 project.addGitIgnore('.envrc');
-project.addGitIgnore('cdk.out/');
+project.addGitIgnore('**/cdk.out');
+project.addGitIgnore('**/*.js');
+project.addGitIgnore('**/*.d.ts');
+project.addGitIgnore('**/cdk.context.json');
+project.addGitIgnore('**/package-lock.json');
 project.synth();

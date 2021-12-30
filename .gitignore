@@ -46,5 +46,9 @@ tsconfig.json
 !/API.md
 .awsprofile
 .envrc
-cdk.out/
+**/cdk.out
+**/*.js
+**/*.d.ts
+**/cdk.context.json
+**/package-lock.json
 !/.github/workflows/upgrade.yml
