@@ -66,18 +66,18 @@ test('Test EZ VPC with NAT Subnet', () => {
   assertions.Template.fromStack(stack).resourceCountIs('AWS::EC2::FlowLog', 0);
 });
 
-test('Test EZ VPC with All Subnets in 3 AZs', () => {
+test('Test EZ VPC with All Subnets in 1 AZ', () => {
   const app = new App();
   const stack = new Stack(app, 'testing-primary', { env: env });
   new EzVpc(stack, 'Vpc', {
     enableSubnetPublic: true,
     enableSubnetPrivateNat: true,
     enableSubnetPrivateIsolated: true,
-    maxAzs: 3,
+    maxAzs: 1,
   });
   assertions.Template.fromStack(stack).findResources('AWS::EC2::VPC');
-  assertions.Template.fromStack(stack).resourceCountIs('AWS::EC2::Subnet', 9);
-  assertions.Template.fromStack(stack).resourceCountIs('AWS::EC2::NatGateway', 3);
+  assertions.Template.fromStack(stack).resourceCountIs('AWS::EC2::Subnet', 3);
+  assertions.Template.fromStack(stack).resourceCountIs('AWS::EC2::NatGateway', 1);
   assertions.Template.fromStack(stack).resourceCountIs('AWS::EC2::VPCEndpoint', 0);
   assertions.Template.fromStack(stack).resourceCountIs('AWS::EC2::FlowLog', 0);
 });
