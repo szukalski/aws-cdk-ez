@@ -50,8 +50,10 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
-.awsprofile
-.envrc
+/.awsprofile
+/.envrc
+**/.projen
+/tsconfig.json
 **/cdk.out
 **/*.js
 **/*.d.ts
