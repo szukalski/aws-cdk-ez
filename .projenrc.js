@@ -15,7 +15,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   license: 'MIT',
   repositoryUrl: 'git@github.com:szukalski/aws-cdk-ez.git',
   npmDistTag: 'latest',
-  releaseToNpm: false,
+  releaseToNpm: true,
   //...disableGithub,
 
   // deps: [],                /* Runtime dependencies of this module. */
