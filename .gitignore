@@ -51,7 +51,6 @@ junit.xml
 !/API.md
 .awsprofile
 .envrc
-**/.projen
 tsconfig.json
 **/cdk.out
 **/*.js
