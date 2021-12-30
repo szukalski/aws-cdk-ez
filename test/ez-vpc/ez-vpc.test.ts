@@ -1,5 +1,5 @@
 import { App, assertions, Stack } from 'aws-cdk-lib';
-import { EzVpc } from '../src/ez-vpc';
+import { EzVpc } from '../../src/ez-vpc/ez-vpc';
 
 const env = { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION };
 

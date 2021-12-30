@@ -1,1 +1,1 @@
-export * from './ez-vpc';
+export * from './ez-vpc/ez-vpc';
