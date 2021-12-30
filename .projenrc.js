@@ -26,11 +26,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
 });
 project.addGitIgnore('/.awsprofile');
 project.addGitIgnore('/.envrc');
-project.addGitIgnore('**/.projen');
+project.addGitIgnore('/.projen');
 project.addGitIgnore('/tsconfig.json');
 project.addGitIgnore('**/cdk.out');
 project.addGitIgnore('**/*.js');
 project.addGitIgnore('**/*.d.ts');
-project.addGitIgnore('**/cdk.context.json');
+project.addGitIgnore('/cdk.context.json');
 project.addGitIgnore('**/package-lock.json');
 project.synth();
