@@ -2,7 +2,7 @@ import { GatewayVpcEndpointAwsService, InterfaceVpcEndpointAwsService, SubnetTyp
 import { Construct } from 'constructs';
 
 /**
- * Definition of VPC
+ * Definition of EZ VPC
  */
 export interface IEzVpcProps {
 
@@ -71,9 +71,9 @@ export interface IEzVpcProps {
 }
 
 /**
- * A VPC
+ * An EZ VPC
  *
- * If no props are provided, or no subnet creation specified, then a VPC with isolated subnets is created.
+ * Default is to create an empty VPC.
  *
  */
 export class EzVpc extends Construct {
@@ -104,7 +104,7 @@ export class EzVpc extends Construct {
         },
       );
     }
-    if (props?.enableSubnetPrivateIsolated || !( props?.enableSubnetPublic || props?.enableSubnetPrivateNat)) {
+    if (props?.enableSubnetPrivateIsolated) {
       subnetConfiguration.push(
         {
           name: 'privateisolated-',
