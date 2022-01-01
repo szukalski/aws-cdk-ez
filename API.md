@@ -6,7 +6,7 @@
 
 An EZ EC2 Instance.
 
-If no props are provided, then a VPC is created
+If no props are provided, then a VPC is created with private NAT subnets.
 
 #### Initializers <a name="aws-cdk-ez.EzEc2Instance.Initializer" id="awscdkezezec2instanceinitializer"></a>
 
@@ -119,7 +119,7 @@ public readonly role: Role;
 
 An EZ VPC.
 
-If no props are provided, or no subnet creation specified, then a VPC with isolated subnets is created.
+Default is to create an empty VPC.
 
 #### Initializers <a name="aws-cdk-ez.EzVpc.Initializer" id="awscdkezezvpcinitializer"></a>
 
@@ -258,7 +258,7 @@ public readonly vpc: Vpc;
 ```
 
 - *Type:* [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc)
-- *Default:* Create a VPC with private isolated subnets
+- *Default:* Create a VPC with private NAT subnets
 
 VPC to deploy instance into.
 
