@@ -75,7 +75,9 @@ test('Test EZ VPC with All Subnets in 1 AZ', () => {
     enableSubnetPublic: true,
     enableSubnetPrivateNat: true,
     enableSubnetPrivateIsolated: true,
-    maxAzs: 1,
+    vpcProps: {
+      maxAzs: 1,
+    },
   });
   assertions.Template.fromStack(stack).findResources('AWS::EC2::VPC');
   assertions.Template.fromStack(stack).resourceCountIs('AWS::EC2::Subnet', 3);

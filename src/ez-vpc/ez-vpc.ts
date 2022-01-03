@@ -1,33 +1,10 @@
-import { GatewayVpcEndpointAwsService, InterfaceVpcEndpointAwsService, SubnetType, Vpc } from 'aws-cdk-lib/aws-ec2';
+import { GatewayVpcEndpointAwsService, InterfaceVpcEndpointAwsService, SubnetType, Vpc, VpcProps } from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
 
 /**
  * Definition of EZ VPC
  */
 export interface IEzVpcProps {
-
-  /**
-   * The CIDR to use for the VPC
-   *
-   * @default - '10.0.0.0/16'
-   */
-  cidr?: string;
-
-  /**
-   * The CIDR mask to use for subnets in the VPC
-   *
-   * The same mask is used for all subnets
-   *
-   * @default - 28
-   */
-  cidrMask?: number;
-
-  /**
-   * The maximum number of Availability Zones to use for the VPC
-   *
-   * @default - 2
-   */
-  maxAzs?: number;
 
   /**
    * Whether to enable VPC Flow Logs
@@ -68,6 +45,14 @@ export interface IEzVpcProps {
    * @default - false
    */
   enableSsmEndpoint?: boolean;
+
+  /**
+   * VPC props for the VPC object, these will take precendence over any other props.
+   * 
+   * @default - undefined
+   * 
+   */
+  vpcProps?: VpcProps;
 }
 
 /**
@@ -91,7 +76,7 @@ export class EzVpc extends Construct {
         {
           name: 'public-',
           subnetType: SubnetType.PUBLIC,
-          cidrMask: props?.cidrMask ?? 28,
+          cidrMask: 28,
         },
       );
     }
@@ -100,7 +85,7 @@ export class EzVpc extends Construct {
         {
           name: 'privatenat-',
           subnetType: SubnetType.PRIVATE_WITH_NAT,
-          cidrMask: props?.cidrMask ?? 28,
+          cidrMask: 28,
         },
       );
     }
@@ -109,15 +94,15 @@ export class EzVpc extends Construct {
         {
           name: 'privateisolated-',
           subnetType: SubnetType.PRIVATE_ISOLATED,
-          cidrMask: props?.cidrMask ?? 28,
+          cidrMask: 28,
         },
       );
     }
 
     const vpc = new Vpc(this, id+'Vpc', {
-      cidr: props?.cidr ?? '10.0.0.0/16',
-      maxAzs: props?.maxAzs ?? 2,
-      subnetConfiguration: subnetConfiguration,
+      maxAzs: props?.vpcProps?.maxAzs ?? 2,
+      subnetConfiguration: props?.vpcProps?.subnetConfiguration ?? subnetConfiguration,
+      ...props?.vpcProps,
     },
     );
 
