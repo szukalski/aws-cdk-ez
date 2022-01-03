@@ -48,9 +48,9 @@ export interface IEzVpcProps {
 
   /**
    * VPC props for the VPC object, these will take precendence over any other props.
-   * 
+   *
    * @default - undefined
-   * 
+   *
    */
   vpcProps?: VpcProps;
 }
@@ -99,41 +99,39 @@ export class EzVpc extends Construct {
       );
     }
 
-    const vpc = new Vpc(this, id+'Vpc', {
-      maxAzs: props?.vpcProps?.maxAzs ?? 2,
-      subnetConfiguration: props?.vpcProps?.subnetConfiguration ?? subnetConfiguration,
+    this.vpc = new Vpc(this, id+'Vpc', {
+      maxAzs: 2,
+      subnetConfiguration: subnetConfiguration,
       ...props?.vpcProps,
     },
     );
 
     if (props?.enableSsmEndpoint) {
-      vpc.addInterfaceEndpoint('cloudwatchLogsEndpoint', {
+      this.vpc.addInterfaceEndpoint('cloudwatchLogsEndpoint', {
         service: InterfaceVpcEndpointAwsService.CLOUDWATCH_LOGS,
       });
-      vpc.addInterfaceEndpoint('ec2Endpoint', {
+      this.vpc.addInterfaceEndpoint('ec2Endpoint', {
         service: InterfaceVpcEndpointAwsService.EC2,
       });
-      vpc.addInterfaceEndpoint('ec2MessagesEndpoint', {
+      this.vpc.addInterfaceEndpoint('ec2MessagesEndpoint', {
         service: InterfaceVpcEndpointAwsService.EC2_MESSAGES,
       });
-      vpc.addInterfaceEndpoint('kmsEndpoint', {
+      this.vpc.addInterfaceEndpoint('kmsEndpoint', {
         service: InterfaceVpcEndpointAwsService.KMS,
       });
-      vpc.addInterfaceEndpoint('enableSsmEndpoint', {
+      this.vpc.addInterfaceEndpoint('enableSsmEndpoint', {
         service: InterfaceVpcEndpointAwsService.SSM,
       });
-      vpc.addInterfaceEndpoint('ssmMessagesEndpoint', {
+      this.vpc.addInterfaceEndpoint('ssmMessagesEndpoint', {
         service: InterfaceVpcEndpointAwsService.SSM_MESSAGES,
       });
-      vpc.addGatewayEndpoint('s3Endpoint', {
+      this.vpc.addGatewayEndpoint('s3Endpoint', {
         service: GatewayVpcEndpointAwsService.S3,
       });
     }
 
     if (props?.enableFlowLog) {
-      vpc.addFlowLog('FlowLog');
+      this.vpc.addFlowLog('FlowLog');
     }
-
-    this.vpc = vpc;
   }
 }

@@ -275,42 +275,12 @@ Definition of EZ VPC.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`cidr`](#awscdkeziezvpcpropspropertycidr) | `string` | The CIDR to use for the VPC. |
-| [`cidrMask`](#awscdkeziezvpcpropspropertycidrmask) | `number` | The CIDR mask to use for subnets in the VPC. |
 | [`enableFlowLog`](#awscdkeziezvpcpropspropertyenableflowlog) | `boolean` | Whether to enable VPC Flow Logs. |
 | [`enableSsmEndpoint`](#awscdkeziezvpcpropspropertyenablessmendpoint) | `boolean` | Whether to create interface endpoints required for SSM to function in an isolated subnet. |
 | [`enableSubnetPrivateIsolated`](#awscdkeziezvpcpropspropertyenablesubnetprivateisolated) | `boolean` | Whether to create private isolated subnets. |
 | [`enableSubnetPrivateNat`](#awscdkeziezvpcpropspropertyenablesubnetprivatenat) | `boolean` | Whether to create private NAT subnets. |
 | [`enableSubnetPublic`](#awscdkeziezvpcpropspropertyenablesubnetpublic) | `boolean` | Whether to create a public subnet. |
-| [`maxAzs`](#awscdkeziezvpcpropspropertymaxazs) | `number` | The maximum number of Availability Zones to use for the VPC. |
-
----
-
-##### `cidr`<sup>Optional</sup> <a name="aws-cdk-ez.IEzVpcProps.property.cidr" id="awscdkeziezvpcpropspropertycidr"></a>
-
-```typescript
-public readonly cidr: string;
-```
-
-- *Type:* `string`
-- *Default:* '10.0.0.0/16'
-
-The CIDR to use for the VPC.
-
----
-
-##### `cidrMask`<sup>Optional</sup> <a name="aws-cdk-ez.IEzVpcProps.property.cidrMask" id="awscdkeziezvpcpropspropertycidrmask"></a>
-
-```typescript
-public readonly cidrMask: number;
-```
-
-- *Type:* `number`
-- *Default:* 28
-
-The CIDR mask to use for subnets in the VPC.
-
-The same mask is used for all subnets
+| [`vpcProps`](#awscdkeziezvpcpropspropertyvpcprops) | [`aws-cdk-lib.aws_ec2.VpcProps`](#aws-cdk-lib.aws_ec2.VpcProps) | VPC props for the VPC object, these will take precendence over any other props. |
 
 ---
 
@@ -383,16 +353,16 @@ If true, then an Internet Gateway will be created
 
 ---
 
-##### `maxAzs`<sup>Optional</sup> <a name="aws-cdk-ez.IEzVpcProps.property.maxAzs" id="awscdkeziezvpcpropspropertymaxazs"></a>
+##### `vpcProps`<sup>Optional</sup> <a name="aws-cdk-ez.IEzVpcProps.property.vpcProps" id="awscdkeziezvpcpropspropertyvpcprops"></a>
 
 ```typescript
-public readonly maxAzs: number;
+public readonly vpcProps: VpcProps;
 ```
 
-- *Type:* `number`
-- *Default:* 2
+- *Type:* [`aws-cdk-lib.aws_ec2.VpcProps`](#aws-cdk-lib.aws_ec2.VpcProps)
+- *Default:* undefined
 
-The maximum number of Availability Zones to use for the VPC.
+VPC props for the VPC object, these will take precendence over any other props.
 
 ---
 
