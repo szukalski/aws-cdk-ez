@@ -9,18 +9,18 @@ import { Construct } from 'constructs';
 export interface IEzS3BucketProps {
   /**
    * Source content to deploy to the S3 Bucket.
-   * 
+   *
    * This can be either a local .zip file, or a local directory. Ie. './src/file.zip'. Contents of a .zip will be extracted.
-   * 
+   *
    * @default - undefined
    */
   deploySource?: string;
 
   /**
    * Deployment prefix.
-   * 
+   *
    * Source content will be deployed with this key prefix, ie. 'web/static'
-   * 
+   *
    * @default - undefined
    */
   deployKeyPrefix?: string;
@@ -54,7 +54,7 @@ export class EzS3Bucket extends Construct {
         sources: [Source.asset(props.deploySource)],
         destinationBucket: this.bucket,
         destinationKeyPrefix: props?.deployKeyPrefix ?? '/',
-      })
+      });
     };
 
     new CfnOutput(
