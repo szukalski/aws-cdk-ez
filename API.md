@@ -148,6 +148,65 @@ public readonly role: Role;
 ---
 
 
+### EzS3Bucket <a name="aws-cdk-ez.EzS3Bucket" id="awscdkezezs3bucket"></a>
+
+An EZ S3 Bucket.
+
+#### Initializers <a name="aws-cdk-ez.EzS3Bucket.Initializer" id="awscdkezezs3bucketinitializer"></a>
+
+```typescript
+import { EzS3Bucket } from 'aws-cdk-ez'
+
+new EzS3Bucket(scope: Construct, id: string, props?: IEzS3BucketProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`scope`](#awscdkezezs3bucketparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#awscdkezezs3bucketparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#awscdkezezs3bucketparameterprops) | [`aws-cdk-ez.IEzS3BucketProps`](#aws-cdk-ez.IEzS3BucketProps) | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="aws-cdk-ez.EzS3Bucket.parameter.scope" id="awscdkezezs3bucketparameterscope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="aws-cdk-ez.EzS3Bucket.parameter.id" id="awscdkezezs3bucketparameterid"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Optional</sup> <a name="aws-cdk-ez.EzS3Bucket.parameter.props" id="awscdkezezs3bucketparameterprops"></a>
+
+- *Type:* [`aws-cdk-ez.IEzS3BucketProps`](#aws-cdk-ez.IEzS3BucketProps)
+
+---
+
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`bucket`](#awscdkezezs3bucketpropertybucket)<span title="Required">*</span> | [`aws-cdk-lib.aws_s3.Bucket`](#aws-cdk-lib.aws_s3.Bucket) | *No description.* |
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="aws-cdk-ez.EzS3Bucket.property.bucket" id="awscdkezezs3bucketpropertybucket"></a>
+
+```typescript
+public readonly bucket: Bucket;
+```
+
+- *Type:* [`aws-cdk-lib.aws_s3.Bucket`](#aws-cdk-lib.aws_s3.Bucket)
+
+---
+
+
 ### EzVpc <a name="aws-cdk-ez.EzVpc" id="awscdkezezvpc"></a>
 
 An EZ VPC.
@@ -294,6 +353,76 @@ public readonly vpc: Vpc;
 - *Default:* undefined, if left undefined then a new VPC with private NAT subnets will be created.
 
 VPC to deploy into.
+
+---
+
+### IEzS3BucketProps <a name="aws-cdk-ez.IEzS3BucketProps" id="awscdkeziezs3bucketprops"></a>
+
+- *Implemented By:* [`aws-cdk-ez.IEzS3BucketProps`](#aws-cdk-ez.IEzS3BucketProps)
+
+Definition of S3 Bucket.
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`bucketProps`](#awscdkeziezs3bucketpropspropertybucketprops) | [`aws-cdk-lib.aws_s3.BucketProps`](#aws-cdk-lib.aws_s3.BucketProps) | S3 Bucket props for the native Bucket object, these will take precedence. |
+| [`deployKeyPrefix`](#awscdkeziezs3bucketpropspropertydeploykeyprefix) | `string` | Deployment prefix. |
+| [`deploySource`](#awscdkeziezs3bucketpropspropertydeploysource) | `string` | Source content to deploy to the S3 Bucket. |
+| [`enableCloudFront`](#awscdkeziezs3bucketpropspropertyenablecloudfront) | `boolean` | *No description.* |
+
+---
+
+##### `bucketProps`<sup>Optional</sup> <a name="aws-cdk-ez.IEzS3BucketProps.property.bucketProps" id="awscdkeziezs3bucketpropspropertybucketprops"></a>
+
+```typescript
+public readonly bucketProps: BucketProps;
+```
+
+- *Type:* [`aws-cdk-lib.aws_s3.BucketProps`](#aws-cdk-lib.aws_s3.BucketProps)
+
+S3 Bucket props for the native Bucket object, these will take precedence.
+
+---
+
+##### `deployKeyPrefix`<sup>Optional</sup> <a name="aws-cdk-ez.IEzS3BucketProps.property.deployKeyPrefix" id="awscdkeziezs3bucketpropspropertydeploykeyprefix"></a>
+
+```typescript
+public readonly deployKeyPrefix: string;
+```
+
+- *Type:* `string`
+- *Default:* undefined
+
+Deployment prefix.
+
+Source content will be deployed with this key prefix, ie. 'web/static'
+
+---
+
+##### `deploySource`<sup>Optional</sup> <a name="aws-cdk-ez.IEzS3BucketProps.property.deploySource" id="awscdkeziezs3bucketpropspropertydeploysource"></a>
+
+```typescript
+public readonly deploySource: string;
+```
+
+- *Type:* `string`
+- *Default:* undefined
+
+Source content to deploy to the S3 Bucket.
+
+This can be either a local .zip file, or a local directory. Ie. './src/file.zip'. Contents of a .zip will be extracted.
+
+---
+
+##### `enableCloudFront`<sup>Optional</sup> <a name="aws-cdk-ez.IEzS3BucketProps.property.enableCloudFront" id="awscdkeziezs3bucketpropspropertyenablecloudfront"></a>
+
+```typescript
+public readonly enableCloudFront: boolean;
+```
+
+- *Type:* `boolean`
 
 ---
 
