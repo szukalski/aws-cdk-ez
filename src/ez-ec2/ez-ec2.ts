@@ -24,7 +24,7 @@ export class EzEc2SsmRole extends Construct {
 /**
  * Definition of EZ EC2 Instance
  */
-export interface EzEc2InstanceProps {
+export interface IEzEc2InstanceProps {
   /**
    * Instance Type to deploy
    *
@@ -77,7 +77,7 @@ export class EzEc2Instance extends Construct {
   public readonly role: IRole;
   public readonly securityGroup: SecurityGroup;
   public readonly vpc: IVpc;
-  constructor(scope: Construct, id: string, props?: EzEc2InstanceProps) {
+  constructor(scope: Construct, id: string, props?: IEzEc2InstanceProps) {
     super(scope, id);
 
     this.vpc =

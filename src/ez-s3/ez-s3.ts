@@ -5,7 +5,7 @@ import { Construct } from 'constructs';
 /**
  * Definition of S3 Bucket
  */
-export interface EzS3BucketProps {
+export interface IEzS3BucketProps {
   /**
    * S3 Bucket props for the native Bucket object, these will take precedence.
    */
@@ -17,7 +17,7 @@ export interface EzS3BucketProps {
  */
 export class EzS3Bucket extends Construct {
   public readonly bucket: Bucket;
-  constructor(scope: Construct, id: string, props?: EzS3BucketProps) {
+  constructor(scope: Construct, id: string, props?: IEzS3BucketProps) {
     super(scope, id);
     this.bucket = new Bucket(this, 'Bucket', {
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,

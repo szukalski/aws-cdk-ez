@@ -49,6 +49,9 @@ new EzEc2Instance(scope: Construct, id: string, props?: IEzEc2InstanceProps)
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | [`instance`](#awscdkezezec2instancepropertyinstance)<span title="Required">*</span> | [`aws-cdk-lib.aws_ec2.Instance`](#aws-cdk-lib.aws_ec2.Instance) | *No description.* |
+| [`role`](#awscdkezezec2instancepropertyrole)<span title="Required">*</span> | [`aws-cdk-lib.aws_iam.IRole`](#aws-cdk-lib.aws_iam.IRole) | *No description.* |
+| [`securityGroup`](#awscdkezezec2instancepropertysecuritygroup)<span title="Required">*</span> | [`aws-cdk-lib.aws_ec2.SecurityGroup`](#aws-cdk-lib.aws_ec2.SecurityGroup) | *No description.* |
+| [`vpc`](#awscdkezezec2instancepropertyvpc)<span title="Required">*</span> | [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc) | *No description.* |
 
 ---
 
@@ -59,6 +62,36 @@ public readonly instance: Instance;
 ```
 
 - *Type:* [`aws-cdk-lib.aws_ec2.Instance`](#aws-cdk-lib.aws_ec2.Instance)
+
+---
+
+##### `role`<sup>Required</sup> <a name="aws-cdk-ez.EzEc2Instance.property.role" id="awscdkezezec2instancepropertyrole"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* [`aws-cdk-lib.aws_iam.IRole`](#aws-cdk-lib.aws_iam.IRole)
+
+---
+
+##### `securityGroup`<sup>Required</sup> <a name="aws-cdk-ez.EzEc2Instance.property.securityGroup" id="awscdkezezec2instancepropertysecuritygroup"></a>
+
+```typescript
+public readonly securityGroup: SecurityGroup;
+```
+
+- *Type:* [`aws-cdk-lib.aws_ec2.SecurityGroup`](#aws-cdk-lib.aws_ec2.SecurityGroup)
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="aws-cdk-ez.EzEc2Instance.property.vpc" id="awscdkezezec2instancepropertyvpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc)
 
 ---
 
@@ -191,11 +224,24 @@ Definition of EZ EC2 Instance.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`instanceType`](#awscdkeziezec2instancepropspropertyinstancetype) | [`aws-cdk-lib.aws_ec2.InstanceType`](#aws-cdk-lib.aws_ec2.InstanceType) | Instance type to deploy. |
-| [`keyName`](#awscdkeziezec2instancepropspropertykeyname) | `string` | RSA Key Name to associate with the EC2 instance. |
+| [`instanceProps`](#awscdkeziezec2instancepropspropertyinstanceprops) | [`aws-cdk-lib.aws_ec2.InstanceProps`](#aws-cdk-lib.aws_ec2.InstanceProps) | Instance props for the native Instance object, these will take precedence. |
+| [`instanceType`](#awscdkeziezec2instancepropspropertyinstancetype) | [`aws-cdk-lib.aws_ec2.InstanceType`](#aws-cdk-lib.aws_ec2.InstanceType) | Instance Type to deploy. |
+| [`keyName`](#awscdkeziezec2instancepropspropertykeyname) | `string` | Name of RSA key to deploy instance with. |
 | [`machineImage`](#awscdkeziezec2instancepropspropertymachineimage) | [`aws-cdk-lib.aws_ec2.IMachineImage`](#aws-cdk-lib.aws_ec2.IMachineImage) | Machine image to deploy. |
-| [`role`](#awscdkeziezec2instancepropspropertyrole) | [`aws-cdk-lib.aws_iam.Role`](#aws-cdk-lib.aws_iam.Role) | The IAM Role to associate with the EC2 instance. |
-| [`vpc`](#awscdkeziezec2instancepropspropertyvpc) | [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc) | VPC to deploy instance into. |
+| [`vpc`](#awscdkeziezec2instancepropspropertyvpc) | [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc) | VPC to deploy into. |
+
+---
+
+##### `instanceProps`<sup>Optional</sup> <a name="aws-cdk-ez.IEzEc2InstanceProps.property.instanceProps" id="awscdkeziezec2instancepropspropertyinstanceprops"></a>
+
+```typescript
+public readonly instanceProps: InstanceProps;
+```
+
+- *Type:* [`aws-cdk-lib.aws_ec2.InstanceProps`](#aws-cdk-lib.aws_ec2.InstanceProps)
+- *Default:* undefined
+
+Instance props for the native Instance object, these will take precedence.
 
 ---
 
@@ -206,9 +252,9 @@ public readonly instanceType: InstanceType;
 ```
 
 - *Type:* [`aws-cdk-lib.aws_ec2.InstanceType`](#aws-cdk-lib.aws_ec2.InstanceType)
-- *Default:* t3.micro
+- *Default:* 'T3.Micro'
 
-Instance type to deploy.
+Instance Type to deploy.
 
 ---
 
@@ -221,7 +267,7 @@ public readonly keyName: string;
 - *Type:* `string`
 - *Default:* undefined
 
-RSA Key Name to associate with the EC2 instance.
+Name of RSA key to deploy instance with.
 
 ---
 
@@ -232,22 +278,9 @@ public readonly machineImage: IMachineImage;
 ```
 
 - *Type:* [`aws-cdk-lib.aws_ec2.IMachineImage`](#aws-cdk-lib.aws_ec2.IMachineImage)
-- *Default:* Amazon Linux 2
+- *Default:* Latest Amazon Linux 2
 
 Machine image to deploy.
-
----
-
-##### `role`<sup>Optional</sup> <a name="aws-cdk-ez.IEzEc2InstanceProps.property.role" id="awscdkeziezec2instancepropspropertyrole"></a>
-
-```typescript
-public readonly role: Role;
-```
-
-- *Type:* [`aws-cdk-lib.aws_iam.Role`](#aws-cdk-lib.aws_iam.Role)
-- *Default:* Create a new IAM Role with SSM management permissions
-
-The IAM Role to associate with the EC2 instance.
 
 ---
 
@@ -258,9 +291,9 @@ public readonly vpc: Vpc;
 ```
 
 - *Type:* [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc)
-- *Default:* Create a VPC with private NAT subnets
+- *Default:* undefined, if left undefined then a new VPC with private NAT subnets will be created.
 
-VPC to deploy instance into.
+VPC to deploy into.
 
 ---
 
@@ -280,7 +313,7 @@ Definition of EZ VPC.
 | [`enableSubnetPrivateIsolated`](#awscdkeziezvpcpropspropertyenablesubnetprivateisolated) | `boolean` | Whether to create private isolated subnets. |
 | [`enableSubnetPrivateNat`](#awscdkeziezvpcpropspropertyenablesubnetprivatenat) | `boolean` | Whether to create private NAT subnets. |
 | [`enableSubnetPublic`](#awscdkeziezvpcpropspropertyenablesubnetpublic) | `boolean` | Whether to create a public subnet. |
-| [`vpcProps`](#awscdkeziezvpcpropspropertyvpcprops) | [`aws-cdk-lib.aws_ec2.VpcProps`](#aws-cdk-lib.aws_ec2.VpcProps) | VPC props for the VPC object, these will take precendence over any other props. |
+| [`vpcProps`](#awscdkeziezvpcpropspropertyvpcprops) | [`aws-cdk-lib.aws_ec2.VpcProps`](#aws-cdk-lib.aws_ec2.VpcProps) | VPC props for the native VPC object, these will take precendence over any other props. |
 
 ---
 
@@ -362,7 +395,7 @@ public readonly vpcProps: VpcProps;
 - *Type:* [`aws-cdk-lib.aws_ec2.VpcProps`](#aws-cdk-lib.aws_ec2.VpcProps)
 - *Default:* undefined
 
-VPC props for the VPC object, these will take precendence over any other props.
+VPC props for the native VPC object, these will take precendence over any other props.
 
 ---
 
