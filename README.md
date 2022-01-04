@@ -12,6 +12,11 @@
 
 Opinionated AWS CDK Constructs to easily build Proof-of-Concepts.
 
+The general approach is to extend the native AWS CDK construct with some opinionated ease-of-use options.
+
+Supplied props for the native construct will take precedence over the EZ construct options. (ie. In ez-vpc, if you specify a subnetConfiguration in vpcProps, then it will ignore any enableSubnet* flags.) 
+This allows for customisation of the deployed construct against the opinionated defaults.
+
   [source]: https://github.com/szukalski/aws-cdk-ez
   [license]: https://github.com/szukalski/aws-cdk-ez/blob/main/LICENSE
   [docs]: https://constructs.dev/packages/aws-cdk-ez/

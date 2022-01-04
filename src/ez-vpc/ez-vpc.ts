@@ -1,3 +1,4 @@
+import { CfnOutput } from 'aws-cdk-lib';
 import { GatewayVpcEndpointAwsService, InterfaceVpcEndpointAwsService, SubnetType, Vpc, VpcProps } from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
 
@@ -47,7 +48,7 @@ export interface IEzVpcProps {
   enableSsmEndpoint?: boolean;
 
   /**
-   * VPC props for the VPC object, these will take precendence over any other props.
+   * VPC props for the native VPC object, these will take precendence over any other props.
    *
    * @default - undefined
    *
@@ -133,5 +134,12 @@ export class EzVpc extends Construct {
     if (props?.enableFlowLog) {
       this.vpc.addFlowLog('FlowLog');
     }
+
+    new CfnOutput(
+      this,
+      'VpcId', {
+        value: this.vpc.vpcId,
+      },
+    );
   }
 }

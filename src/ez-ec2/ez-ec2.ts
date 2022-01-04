@@ -1,5 +1,5 @@
 import { CfnOutput } from 'aws-cdk-lib';
-import { AmazonLinuxGeneration, Instance, InstanceClass, InstanceProps, InstanceSize, InstanceType, IVpc, MachineImage, SecurityGroup, Vpc } from 'aws-cdk-lib/aws-ec2';
+import { AmazonLinuxGeneration, IMachineImage, Instance, InstanceClass, InstanceProps, InstanceSize, InstanceType, IVpc, MachineImage, SecurityGroup, Vpc } from 'aws-cdk-lib/aws-ec2';
 import { IRole, ManagedPolicy, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 import { EzVpc } from '..';
@@ -21,9 +21,50 @@ export class EzEc2SsmRole extends Construct {
   }
 }
 
+/**
+ * Definition of EZ EC2 Instance
+ */
 export interface EzEc2InstanceProps {
-  keyName?: string;
+  /**
+   * Instance Type to deploy
+   *
+   * @default - 'T3.Micro'
+   */
+  instanceType?: InstanceType;
+
+  /**
+   * Instance props for the native Instance object, these will take precedence.
+   *
+   * @default - undefined
+   */
   instanceProps?: InstanceProps;
+
+  /**
+   * Name of RSA key to deploy instance with.
+   *
+   * @default - undefined
+   */
+  keyName?: string;
+
+  /**
+   * Machine image to deploy
+   *
+   * @default - Latest Amazon Linux 2
+   */
+  machineImage?: IMachineImage;
+
+  /**
+   * IAM role to deploy with the instance
+   *
+   * @default - undefined, if left undefined then a new IAM role with SSM management permissions will be created.
+   */
+
+  /**
+   * VPC to deploy into.
+   *
+   * @default - undefined, if left undefined then a new VPC with private NAT subnets will be created.
+   */
+  vpc?: Vpc;
 }
 
 /**
@@ -39,11 +80,16 @@ export class EzEc2Instance extends Construct {
   constructor(scope: Construct, id: string, props?: EzEc2InstanceProps) {
     super(scope, id);
 
-    this.vpc = props?.instanceProps?.vpc ?? new EzVpc(this, 'Vpc', {
-      enableSubnetPrivateNat: true,
-    }).vpc
+    this.vpc =
+      props?.instanceProps?.vpc ??
+      props?.vpc ??
+      new EzVpc(this, 'Vpc', {
+        enableSubnetPrivateNat: true,
+      }).vpc;
 
-    this.role = props?.instanceProps?.role ?? new EzEc2SsmRole(this, 'Role').role;
+    this.role =
+      props?.instanceProps?.role ??
+      new EzEc2SsmRole(this, 'Role').role;
 
     this.securityGroup = new SecurityGroup(
       this,
@@ -57,20 +103,24 @@ export class EzEc2Instance extends Construct {
       vpc: this.vpc,
       role: this.role,
       securityGroup: this.securityGroup,
-      instanceType: InstanceType.of(InstanceClass.T3, InstanceSize.MICRO),
-      machineImage: 
+      instanceType:
+        props?.instanceType ??
+        InstanceType.of(InstanceClass.T3, InstanceSize.MICRO),
+      machineImage:
+        props?.machineImage ??
         MachineImage.latestAmazonLinux({
           generation: AmazonLinuxGeneration.AMAZON_LINUX_2,
         }),
       keyName: props?.keyName,
-      ...props,
-      }
+      ...props?.instanceProps,
+    },
     );
 
     new CfnOutput(
       this,
-      'Output', {
+      'InstanceId', {
         value: this.instance.instanceId,
-      });
+      },
+    );
   }
 }
