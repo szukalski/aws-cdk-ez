@@ -25,6 +25,8 @@ export interface IEzS3BucketProps {
    */
   deployKeyPrefix?: string;
 
+  enableCloudFront?: boolean;
+
   /**
    * S3 Bucket props for the native Bucket object, these will take precedence.
    */
