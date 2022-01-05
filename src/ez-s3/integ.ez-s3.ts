@@ -5,4 +5,7 @@ const env = { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_
 
 const app = new App();
 const stack = new Stack(app, 'test', { env: env });
-new EzS3Bucket(stack, 'Bucket');
+new EzS3Bucket(stack, 'Bucket', {
+  enableWebDistribution: true,
+  deploymentSource: './lib',
+});

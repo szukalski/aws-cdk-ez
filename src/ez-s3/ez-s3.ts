@@ -53,8 +53,11 @@ export class EzS3Bucket extends Construct {
       encryption: BucketEncryption.S3_MANAGED,
       serverAccessLogsPrefix: 'logs',
       versioned: true,
+      websiteIndexDocument: props?.enableWebDistribution ? 'index.html' : undefined,
+      websiteErrorDocument: props?.enableWebDistribution ? 'error.html' : undefined,
       removalPolicy: RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
+
       ...props?.bucketProps,
     });
     new CfnOutput(
@@ -77,7 +80,7 @@ export class EzS3Bucket extends Construct {
         comment: `OAI for ${id}`,
       });
       this.bucket.grantRead(cloudfrontOAI);
-      new CloudFrontWebDistribution(this, 'Distribution', {
+      const distribution = new CloudFrontWebDistribution(this, 'Distribution', {
         originConfigs: [
           {
             s3OriginSource: {
@@ -92,6 +95,12 @@ export class EzS3Bucket extends Construct {
           },
         ],
       });
+      new CfnOutput(
+        this,
+        'DistributionUrl', {
+          value: distribution.distributionDomainName,
+        },
+      );
     }
   }
 }
