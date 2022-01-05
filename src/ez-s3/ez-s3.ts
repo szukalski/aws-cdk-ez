@@ -43,8 +43,7 @@ export class EzS3Bucket extends Construct {
     this.bucket = new Bucket(this, 'Bucket', {
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
       enforceSSL: true,
-      encryption: BucketEncryption.KMS,
-      bucketKeyEnabled: true,
+      encryption: BucketEncryption.S3_MANAGED,
       serverAccessLogsPrefix: 'logs',
       removalPolicy: RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
