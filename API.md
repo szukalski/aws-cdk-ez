@@ -369,8 +369,8 @@ Definition of S3 Bucket.
 | --- | --- | --- |
 | [`bucketProps`](#awscdkeziezs3bucketpropspropertybucketprops) | [`aws-cdk-lib.aws_s3.BucketProps`](#aws-cdk-lib.aws_s3.BucketProps) | S3 Bucket props for the native Bucket object, these will take precedence. |
 | [`deployKeyPrefix`](#awscdkeziezs3bucketpropspropertydeploykeyprefix) | `string` | Deployment prefix. |
-| [`deploySource`](#awscdkeziezs3bucketpropspropertydeploysource) | `string` | Source content to deploy to the S3 Bucket. |
-| [`enableCloudFront`](#awscdkeziezs3bucketpropspropertyenablecloudfront) | `boolean` | *No description.* |
+| [`deploymentSource`](#awscdkeziezs3bucketpropspropertydeploymentsource) | `string` | Source content to deploy to the S3 Bucket. |
+| [`enableWebDistribution`](#awscdkeziezs3bucketpropspropertyenablewebdistribution) | `boolean` | Deploy a CloudFront Web Distribution with the bucket as source. |
 
 ---
 
@@ -401,10 +401,10 @@ Source content will be deployed with this key prefix, ie. 'web/static'
 
 ---
 
-##### `deploySource`<sup>Optional</sup> <a name="aws-cdk-ez.IEzS3BucketProps.property.deploySource" id="awscdkeziezs3bucketpropspropertydeploysource"></a>
+##### `deploymentSource`<sup>Optional</sup> <a name="aws-cdk-ez.IEzS3BucketProps.property.deploymentSource" id="awscdkeziezs3bucketpropspropertydeploymentsource"></a>
 
 ```typescript
-public readonly deploySource: string;
+public readonly deploymentSource: string;
 ```
 
 - *Type:* `string`
@@ -416,13 +416,16 @@ This can be either a local .zip file, or a local directory. Ie. './src/file.zip'
 
 ---
 
-##### `enableCloudFront`<sup>Optional</sup> <a name="aws-cdk-ez.IEzS3BucketProps.property.enableCloudFront" id="awscdkeziezs3bucketpropspropertyenablecloudfront"></a>
+##### `enableWebDistribution`<sup>Optional</sup> <a name="aws-cdk-ez.IEzS3BucketProps.property.enableWebDistribution" id="awscdkeziezs3bucketpropspropertyenablewebdistribution"></a>
 
 ```typescript
-public readonly enableCloudFront: boolean;
+public readonly enableWebDistribution: boolean;
 ```
 
 - *Type:* `boolean`
+- *Default:* undefined
+
+Deploy a CloudFront Web Distribution with the bucket as source.
 
 ---
 

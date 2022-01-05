@@ -1,4 +1,5 @@
 import { CfnOutput, RemovalPolicy } from 'aws-cdk-lib';
+import { CloudFrontAllowedMethods, CloudFrontWebDistribution, OriginAccessIdentity } from 'aws-cdk-lib/aws-cloudfront';
 import { BlockPublicAccess, Bucket, BucketEncryption, BucketProps } from 'aws-cdk-lib/aws-s3';
 import { BucketDeployment, Source } from 'aws-cdk-lib/aws-s3-deployment';
 import { Construct } from 'constructs';
@@ -14,7 +15,7 @@ export interface IEzS3BucketProps {
    *
    * @default - undefined
    */
-  deploySource?: string;
+  deploymentSource?: string;
 
   /**
    * Deployment prefix.
@@ -25,7 +26,12 @@ export interface IEzS3BucketProps {
    */
   deployKeyPrefix?: string;
 
-  enableCloudFront?: boolean;
+  /**
+   * Deploy a CloudFront Web Distribution with the bucket as source
+   *
+   * @default - undefined
+   */
+  enableWebDistribution?: boolean;
 
   /**
    * S3 Bucket props for the native Bucket object, these will take precedence.
@@ -42,27 +48,50 @@ export class EzS3Bucket extends Construct {
     super(scope, id);
     this.bucket = new Bucket(this, 'Bucket', {
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
+      publicReadAccess: false,
       enforceSSL: true,
       encryption: BucketEncryption.S3_MANAGED,
       serverAccessLogsPrefix: 'logs',
+      versioned: true,
       removalPolicy: RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
       ...props?.bucketProps,
     });
-
-    if (props?.deploySource) {
-      new BucketDeployment(this, 'BucketDeploy', {
-        sources: [Source.asset(props.deploySource)],
-        destinationBucket: this.bucket,
-        destinationKeyPrefix: props?.deployKeyPrefix ?? '/',
-      });
-    };
-
     new CfnOutput(
       this,
       'BucketName', {
         value: this.bucket.bucketName,
       },
     );
+
+    if (props?.deploymentSource) {
+      new BucketDeployment(this, 'BucketDeploy', {
+        sources: [Source.asset(props.deploymentSource)],
+        destinationBucket: this.bucket,
+        destinationKeyPrefix: props?.deployKeyPrefix ?? '/',
+      });
+    };
+
+    if (props?.enableWebDistribution) {
+      const cloudfrontOAI = new OriginAccessIdentity(this, 'Cloudfront-OAI', {
+        comment: `OAI for ${id}`,
+      });
+      this.bucket.grantRead(cloudfrontOAI);
+      new CloudFrontWebDistribution(this, 'Distribution', {
+        originConfigs: [
+          {
+            s3OriginSource: {
+              s3BucketSource: this.bucket,
+              originAccessIdentity: cloudfrontOAI,
+            },
+            behaviors: [{
+              isDefaultBehavior: true,
+              compress: true,
+              allowedMethods: CloudFrontAllowedMethods.GET_HEAD_OPTIONS,
+            }],
+          },
+        ],
+      });
+    }
   }
 }
