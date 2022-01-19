@@ -54,12 +54,6 @@ export interface IEzEc2InstanceProps {
   machineImage?: IMachineImage;
 
   /**
-   * IAM role to deploy with the instance
-   *
-   * @default - undefined, if left undefined then a new IAM role with SSM management permissions will be created.
-   */
-
-  /**
    * VPC to deploy into.
    *
    * @default - undefined, if left undefined then a new VPC with private NAT subnets will be created.

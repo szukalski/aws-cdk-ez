@@ -2,6 +2,142 @@
 
 ## Constructs <a name="Constructs" id="constructs"></a>
 
+### EzAuroraCluster <a name="aws-cdk-ez.EzAuroraCluster" id="awscdkezezauroracluster"></a>
+
+#### Initializers <a name="aws-cdk-ez.EzAuroraCluster.Initializer" id="awscdkezezauroraclusterinitializer"></a>
+
+```typescript
+import { EzAuroraCluster } from 'aws-cdk-ez'
+
+new EzAuroraCluster(scope: Construct, id: string, props: IEzAuroraClusterProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`scope`](#awscdkezezauroraclusterparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#awscdkezezauroraclusterparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#awscdkezezauroraclusterparameterprops)<span title="Required">*</span> | [`aws-cdk-ez.IEzAuroraClusterProps`](#aws-cdk-ez.IEzAuroraClusterProps) | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="aws-cdk-ez.EzAuroraCluster.parameter.scope" id="awscdkezezauroraclusterparameterscope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="aws-cdk-ez.EzAuroraCluster.parameter.id" id="awscdkezezauroraclusterparameterid"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Required</sup> <a name="aws-cdk-ez.EzAuroraCluster.parameter.props" id="awscdkezezauroraclusterparameterprops"></a>
+
+- *Type:* [`aws-cdk-ez.IEzAuroraClusterProps`](#aws-cdk-ez.IEzAuroraClusterProps)
+
+---
+
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`cluster`](#awscdkezezauroraclusterpropertycluster)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.DatabaseCluster`](#aws-cdk-lib.aws_rds.DatabaseCluster) | *No description.* |
+| [`vpc`](#awscdkezezauroraclusterpropertyvpc)<span title="Required">*</span> | [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc) | *No description.* |
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="aws-cdk-ez.EzAuroraCluster.property.cluster" id="awscdkezezauroraclusterpropertycluster"></a>
+
+```typescript
+public readonly cluster: DatabaseCluster;
+```
+
+- *Type:* [`aws-cdk-lib.aws_rds.DatabaseCluster`](#aws-cdk-lib.aws_rds.DatabaseCluster)
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="aws-cdk-ez.EzAuroraCluster.property.vpc" id="awscdkezezauroraclusterpropertyvpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc)
+
+---
+
+
+### EzAuroraGlobalCluster <a name="aws-cdk-ez.EzAuroraGlobalCluster" id="awscdkezezauroraglobalcluster"></a>
+
+#### Initializers <a name="aws-cdk-ez.EzAuroraGlobalCluster.Initializer" id="awscdkezezauroraglobalclusterinitializer"></a>
+
+```typescript
+import { EzAuroraGlobalCluster } from 'aws-cdk-ez'
+
+new EzAuroraGlobalCluster(scope: Construct, id: string, props: IEzAuroraGlobalClusterProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`scope`](#awscdkezezauroraglobalclusterparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#awscdkezezauroraglobalclusterparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#awscdkezezauroraglobalclusterparameterprops)<span title="Required">*</span> | [`aws-cdk-ez.IEzAuroraGlobalClusterProps`](#aws-cdk-ez.IEzAuroraGlobalClusterProps) | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="aws-cdk-ez.EzAuroraGlobalCluster.parameter.scope" id="awscdkezezauroraglobalclusterparameterscope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="aws-cdk-ez.EzAuroraGlobalCluster.parameter.id" id="awscdkezezauroraglobalclusterparameterid"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Required</sup> <a name="aws-cdk-ez.EzAuroraGlobalCluster.parameter.props" id="awscdkezezauroraglobalclusterparameterprops"></a>
+
+- *Type:* [`aws-cdk-ez.IEzAuroraGlobalClusterProps`](#aws-cdk-ez.IEzAuroraGlobalClusterProps)
+
+---
+
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`cluster`](#awscdkezezauroraglobalclusterpropertycluster)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.DatabaseCluster`](#aws-cdk-lib.aws_rds.DatabaseCluster) | *No description.* |
+| [`vpc`](#awscdkezezauroraglobalclusterpropertyvpc)<span title="Required">*</span> | [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc) | *No description.* |
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="aws-cdk-ez.EzAuroraGlobalCluster.property.cluster" id="awscdkezezauroraglobalclusterpropertycluster"></a>
+
+```typescript
+public readonly cluster: DatabaseCluster;
+```
+
+- *Type:* [`aws-cdk-lib.aws_rds.DatabaseCluster`](#aws-cdk-lib.aws_rds.DatabaseCluster)
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="aws-cdk-ez.EzAuroraGlobalCluster.property.vpc" id="awscdkezezauroraglobalclusterpropertyvpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc)
+
+---
+
+
 ### EzEc2Instance <a name="aws-cdk-ez.EzEc2Instance" id="awscdkezezec2instance"></a>
 
 An EZ EC2 Instance.
@@ -271,6 +407,142 @@ public readonly vpc: Vpc;
 
 
 ## Protocols <a name="Protocols" id="protocols"></a>
+
+### IEzAuroraClusterProps <a name="aws-cdk-ez.IEzAuroraClusterProps" id="awscdkeziezauroraclusterprops"></a>
+
+- *Implemented By:* [`aws-cdk-ez.IEzAuroraClusterProps`](#aws-cdk-ez.IEzAuroraClusterProps), [`aws-cdk-ez.IEzAuroraGlobalClusterProps`](#aws-cdk-ez.IEzAuroraGlobalClusterProps)
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`engine`](#awscdkeziezauroraclusterpropspropertyengine)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine) | *No description.* |
+| [`databaseClusterProps`](#awscdkeziezauroraclusterpropspropertydatabaseclusterprops) | [`aws-cdk-lib.aws_rds.DatabaseClusterProps`](#aws-cdk-lib.aws_rds.DatabaseClusterProps) | *No description.* |
+| [`instances`](#awscdkeziezauroraclusterpropspropertyinstances) | `number` | *No description.* |
+| [`vpc`](#awscdkeziezauroraclusterpropspropertyvpc) | [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc) | *No description.* |
+
+---
+
+##### `engine`<sup>Required</sup> <a name="aws-cdk-ez.IEzAuroraClusterProps.property.engine" id="awscdkeziezauroraclusterpropspropertyengine"></a>
+
+```typescript
+public readonly engine: IClusterEngine;
+```
+
+- *Type:* [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine)
+
+---
+
+##### `databaseClusterProps`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraClusterProps.property.databaseClusterProps" id="awscdkeziezauroraclusterpropspropertydatabaseclusterprops"></a>
+
+```typescript
+public readonly databaseClusterProps: DatabaseClusterProps;
+```
+
+- *Type:* [`aws-cdk-lib.aws_rds.DatabaseClusterProps`](#aws-cdk-lib.aws_rds.DatabaseClusterProps)
+
+---
+
+##### `instances`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraClusterProps.property.instances" id="awscdkeziezauroraclusterpropspropertyinstances"></a>
+
+```typescript
+public readonly instances: number;
+```
+
+- *Type:* `number`
+
+---
+
+##### `vpc`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraClusterProps.property.vpc" id="awscdkeziezauroraclusterpropspropertyvpc"></a>
+
+```typescript
+public readonly vpc: Vpc;
+```
+
+- *Type:* [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc)
+
+---
+
+### IEzAuroraGlobalClusterProps <a name="aws-cdk-ez.IEzAuroraGlobalClusterProps" id="awscdkeziezauroraglobalclusterprops"></a>
+
+- *Extends:* [`aws-cdk-ez.IEzAuroraClusterProps`](#aws-cdk-ez.IEzAuroraClusterProps)
+
+- *Implemented By:* [`aws-cdk-ez.IEzAuroraGlobalClusterProps`](#aws-cdk-ez.IEzAuroraGlobalClusterProps)
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`engine`](#awscdkeziezauroraglobalclusterpropspropertyengine)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine) | *No description.* |
+| [`databaseClusterProps`](#awscdkeziezauroraglobalclusterpropspropertydatabaseclusterprops) | [`aws-cdk-lib.aws_rds.DatabaseClusterProps`](#aws-cdk-lib.aws_rds.DatabaseClusterProps) | *No description.* |
+| [`instances`](#awscdkeziezauroraglobalclusterpropspropertyinstances) | `number` | *No description.* |
+| [`vpc`](#awscdkeziezauroraglobalclusterpropspropertyvpc) | [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc) | *No description.* |
+| [`globalClusterIdentifier`](#awscdkeziezauroraglobalclusterpropspropertyglobalclusteridentifier)<span title="Required">*</span> | `string` | *No description.* |
+| [`isPrimary`](#awscdkeziezauroraglobalclusterpropspropertyisprimary) | `boolean` | *No description.* |
+
+---
+
+##### `engine`<sup>Required</sup> <a name="aws-cdk-ez.IEzAuroraGlobalClusterProps.property.engine" id="awscdkeziezauroraglobalclusterpropspropertyengine"></a>
+
+```typescript
+public readonly engine: IClusterEngine;
+```
+
+- *Type:* [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine)
+
+---
+
+##### `databaseClusterProps`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraGlobalClusterProps.property.databaseClusterProps" id="awscdkeziezauroraglobalclusterpropspropertydatabaseclusterprops"></a>
+
+```typescript
+public readonly databaseClusterProps: DatabaseClusterProps;
+```
+
+- *Type:* [`aws-cdk-lib.aws_rds.DatabaseClusterProps`](#aws-cdk-lib.aws_rds.DatabaseClusterProps)
+
+---
+
+##### `instances`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraGlobalClusterProps.property.instances" id="awscdkeziezauroraglobalclusterpropspropertyinstances"></a>
+
+```typescript
+public readonly instances: number;
+```
+
+- *Type:* `number`
+
+---
+
+##### `vpc`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraGlobalClusterProps.property.vpc" id="awscdkeziezauroraglobalclusterpropspropertyvpc"></a>
+
+```typescript
+public readonly vpc: Vpc;
+```
+
+- *Type:* [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc)
+
+---
+
+##### `globalClusterIdentifier`<sup>Required</sup> <a name="aws-cdk-ez.IEzAuroraGlobalClusterProps.property.globalClusterIdentifier" id="awscdkeziezauroraglobalclusterpropspropertyglobalclusteridentifier"></a>
+
+```typescript
+public readonly globalClusterIdentifier: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `isPrimary`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraGlobalClusterProps.property.isPrimary" id="awscdkeziezauroraglobalclusterpropspropertyisprimary"></a>
+
+```typescript
+public readonly isPrimary: boolean;
+```
+
+- *Type:* `boolean`
+
+---
 
 ### IEzEc2InstanceProps <a name="aws-cdk-ez.IEzEc2InstanceProps" id="awscdkeziezec2instanceprops"></a>
 
