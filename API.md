@@ -4,6 +4,10 @@
 
 ### EzAuroraCluster <a name="aws-cdk-ez.EzAuroraCluster" id="awscdkezezauroracluster"></a>
 
+An EZ Aurora Cluster.
+
+If no VPC is provided, then a VPC with private isolated subnets is created
+
 #### Initializers <a name="aws-cdk-ez.EzAuroraCluster.Initializer" id="awscdkezezauroraclusterinitializer"></a>
 
 ```typescript
@@ -71,6 +75,10 @@ public readonly vpc: IVpc;
 
 
 ### EzAuroraGlobalCluster <a name="aws-cdk-ez.EzAuroraGlobalCluster" id="awscdkezezauroraglobalcluster"></a>
+
+An EZ Aurora Global Cluster.
+
+If no VPC is provided, then a VPC with private isolated subnets is created. Default behaviour is to join an existing Global Cluster, which will fail if it does not exist.
 
 #### Initializers <a name="aws-cdk-ez.EzAuroraGlobalCluster.Initializer" id="awscdkezezauroraglobalclusterinitializer"></a>
 
@@ -412,15 +420,17 @@ public readonly vpc: Vpc;
 
 - *Implemented By:* [`aws-cdk-ez.IEzAuroraClusterProps`](#aws-cdk-ez.IEzAuroraClusterProps), [`aws-cdk-ez.IEzAuroraGlobalClusterProps`](#aws-cdk-ez.IEzAuroraGlobalClusterProps)
 
+Definition of EZ Aurora Cluster.
+
 
 #### Properties <a name="Properties" id="properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`engine`](#awscdkeziezauroraclusterpropspropertyengine)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine) | *No description.* |
-| [`databaseClusterProps`](#awscdkeziezauroraclusterpropspropertydatabaseclusterprops) | [`aws-cdk-lib.aws_rds.DatabaseClusterProps`](#aws-cdk-lib.aws_rds.DatabaseClusterProps) | *No description.* |
-| [`instances`](#awscdkeziezauroraclusterpropspropertyinstances) | `number` | *No description.* |
-| [`vpc`](#awscdkeziezauroraclusterpropspropertyvpc) | [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc) | *No description.* |
+| [`engine`](#awscdkeziezauroraclusterpropspropertyengine)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine) | Database engine to use. |
+| [`databaseClusterProps`](#awscdkeziezauroraclusterpropspropertydatabaseclusterprops) | [`aws-cdk-lib.aws_rds.DatabaseClusterProps`](#aws-cdk-lib.aws_rds.DatabaseClusterProps) | Database cluster props, these will take precedence. |
+| [`instances`](#awscdkeziezauroraclusterpropspropertyinstances) | `number` | Number of database instances to deploy. |
+| [`vpc`](#awscdkeziezauroraclusterpropspropertyvpc) | [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc) | VPC to deploy into. |
 
 ---
 
@@ -432,6 +442,8 @@ public readonly engine: IClusterEngine;
 
 - *Type:* [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine)
 
+Database engine to use.
+
 ---
 
 ##### `databaseClusterProps`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraClusterProps.property.databaseClusterProps" id="awscdkeziezauroraclusterpropspropertydatabaseclusterprops"></a>
@@ -441,6 +453,9 @@ public readonly databaseClusterProps: DatabaseClusterProps;
 ```
 
 - *Type:* [`aws-cdk-lib.aws_rds.DatabaseClusterProps`](#aws-cdk-lib.aws_rds.DatabaseClusterProps)
+- *Default:* undefined
+
+Database cluster props, these will take precedence.
 
 ---
 
@@ -451,16 +466,22 @@ public readonly instances: number;
 ```
 
 - *Type:* `number`
+- *Default:* 1
+
+Number of database instances to deploy.
 
 ---
 
 ##### `vpc`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraClusterProps.property.vpc" id="awscdkeziezauroraclusterpropspropertyvpc"></a>
 
 ```typescript
-public readonly vpc: Vpc;
+public readonly vpc: IVpc;
 ```
 
-- *Type:* [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc)
+- *Type:* [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc)
+- *Default:* undefined, if left undefined then a new VPC with private isolated subnets will be created.
+
+VPC to deploy into.
 
 ---
 
@@ -470,17 +491,19 @@ public readonly vpc: Vpc;
 
 - *Implemented By:* [`aws-cdk-ez.IEzAuroraGlobalClusterProps`](#aws-cdk-ez.IEzAuroraGlobalClusterProps)
 
+Definition of EZ Aurora Global Cluster.
+
 
 #### Properties <a name="Properties" id="properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`engine`](#awscdkeziezauroraglobalclusterpropspropertyengine)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine) | *No description.* |
-| [`databaseClusterProps`](#awscdkeziezauroraglobalclusterpropspropertydatabaseclusterprops) | [`aws-cdk-lib.aws_rds.DatabaseClusterProps`](#aws-cdk-lib.aws_rds.DatabaseClusterProps) | *No description.* |
-| [`instances`](#awscdkeziezauroraglobalclusterpropspropertyinstances) | `number` | *No description.* |
-| [`vpc`](#awscdkeziezauroraglobalclusterpropspropertyvpc) | [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc) | *No description.* |
-| [`globalClusterIdentifier`](#awscdkeziezauroraglobalclusterpropspropertyglobalclusteridentifier)<span title="Required">*</span> | `string` | *No description.* |
-| [`isPrimary`](#awscdkeziezauroraglobalclusterpropspropertyisprimary) | `boolean` | *No description.* |
+| [`engine`](#awscdkeziezauroraglobalclusterpropspropertyengine)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine) | Database engine to use. |
+| [`databaseClusterProps`](#awscdkeziezauroraglobalclusterpropspropertydatabaseclusterprops) | [`aws-cdk-lib.aws_rds.DatabaseClusterProps`](#aws-cdk-lib.aws_rds.DatabaseClusterProps) | Database cluster props, these will take precedence. |
+| [`instances`](#awscdkeziezauroraglobalclusterpropspropertyinstances) | `number` | Number of database instances to deploy. |
+| [`vpc`](#awscdkeziezauroraglobalclusterpropspropertyvpc) | [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc) | VPC to deploy into. |
+| [`globalClusterIdentifier`](#awscdkeziezauroraglobalclusterpropspropertyglobalclusteridentifier)<span title="Required">*</span> | `string` | Global Cluster Identifier. |
+| [`isPrimary`](#awscdkeziezauroraglobalclusterpropspropertyisprimary) | `boolean` | Makes the cluster primary in the global cluster. |
 
 ---
 
@@ -492,6 +515,8 @@ public readonly engine: IClusterEngine;
 
 - *Type:* [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine)
 
+Database engine to use.
+
 ---
 
 ##### `databaseClusterProps`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraGlobalClusterProps.property.databaseClusterProps" id="awscdkeziezauroraglobalclusterpropspropertydatabaseclusterprops"></a>
@@ -501,6 +526,9 @@ public readonly databaseClusterProps: DatabaseClusterProps;
 ```
 
 - *Type:* [`aws-cdk-lib.aws_rds.DatabaseClusterProps`](#aws-cdk-lib.aws_rds.DatabaseClusterProps)
+- *Default:* undefined
+
+Database cluster props, these will take precedence.
 
 ---
 
@@ -511,16 +539,22 @@ public readonly instances: number;
 ```
 
 - *Type:* `number`
+- *Default:* 1
+
+Number of database instances to deploy.
 
 ---
 
 ##### `vpc`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraGlobalClusterProps.property.vpc" id="awscdkeziezauroraglobalclusterpropspropertyvpc"></a>
 
 ```typescript
-public readonly vpc: Vpc;
+public readonly vpc: IVpc;
 ```
 
-- *Type:* [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc)
+- *Type:* [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc)
+- *Default:* undefined, if left undefined then a new VPC with private isolated subnets will be created.
+
+VPC to deploy into.
 
 ---
 
@@ -532,6 +566,10 @@ public readonly globalClusterIdentifier: string;
 
 - *Type:* `string`
 
+Global Cluster Identifier.
+
+Required.
+
 ---
 
 ##### `isPrimary`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraGlobalClusterProps.property.isPrimary" id="awscdkeziezauroraglobalclusterpropspropertyisprimary"></a>
@@ -541,6 +579,11 @@ public readonly isPrimary: boolean;
 ```
 
 - *Type:* `boolean`
+- *Default:* undefined
+
+Makes the cluster primary in the global cluster.
+
+If not true, then the cluster attempts to join an existing global cluster.
 
 ---
 
