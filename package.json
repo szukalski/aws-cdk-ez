@@ -48,11 +48,7 @@
     "jest-junit": "^13",
     "jsii": "^1.52.1",
     "jsii-diff": "^1.52.1",
-<<<<<<< HEAD
     "jsii-docgen": "^4.2.44",
-=======
-    "jsii-docgen": "^4.2.35",
->>>>>>> 93dc1e5d2a561ce7227f56327e72a16e8273b7de
     "json-schema": "^0.4.0",
     "npm-check-updates": "^12",
     "projen": "^0.47.12",
