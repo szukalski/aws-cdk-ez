@@ -427,22 +427,10 @@ Definition of EZ Aurora Cluster.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`engine`](#awscdkeziezauroraclusterpropspropertyengine)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine) | Database engine to use. |
 | [`databaseClusterProps`](#awscdkeziezauroraclusterpropspropertydatabaseclusterprops) | [`aws-cdk-lib.aws_rds.DatabaseClusterProps`](#aws-cdk-lib.aws_rds.DatabaseClusterProps) | Database cluster props, these will take precedence. |
+| [`engine`](#awscdkeziezauroraclusterpropspropertyengine) | [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine) | Database engine to use. |
 | [`instances`](#awscdkeziezauroraclusterpropspropertyinstances) | `number` | Number of database instances to deploy. |
 | [`vpc`](#awscdkeziezauroraclusterpropspropertyvpc) | [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc) | VPC to deploy into. |
-
----
-
-##### `engine`<sup>Required</sup> <a name="aws-cdk-ez.IEzAuroraClusterProps.property.engine" id="awscdkeziezauroraclusterpropspropertyengine"></a>
-
-```typescript
-public readonly engine: IClusterEngine;
-```
-
-- *Type:* [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine)
-
-Database engine to use.
 
 ---
 
@@ -456,6 +444,19 @@ public readonly databaseClusterProps: DatabaseClusterProps;
 - *Default:* undefined
 
 Database cluster props, these will take precedence.
+
+---
+
+##### `engine`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraClusterProps.property.engine" id="awscdkeziezauroraclusterpropspropertyengine"></a>
+
+```typescript
+public readonly engine: IClusterEngine;
+```
+
+- *Type:* [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine)
+- *Default:* PostgreSQL 13.4
+
+Database engine to use.
 
 ---
 
@@ -498,24 +499,12 @@ Definition of EZ Aurora Global Cluster.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`engine`](#awscdkeziezauroraglobalclusterpropspropertyengine)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine) | Database engine to use. |
 | [`databaseClusterProps`](#awscdkeziezauroraglobalclusterpropspropertydatabaseclusterprops) | [`aws-cdk-lib.aws_rds.DatabaseClusterProps`](#aws-cdk-lib.aws_rds.DatabaseClusterProps) | Database cluster props, these will take precedence. |
+| [`engine`](#awscdkeziezauroraglobalclusterpropspropertyengine) | [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine) | Database engine to use. |
 | [`instances`](#awscdkeziezauroraglobalclusterpropspropertyinstances) | `number` | Number of database instances to deploy. |
 | [`vpc`](#awscdkeziezauroraglobalclusterpropspropertyvpc) | [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc) | VPC to deploy into. |
 | [`globalClusterIdentifier`](#awscdkeziezauroraglobalclusterpropspropertyglobalclusteridentifier)<span title="Required">*</span> | `string` | Global Cluster Identifier. |
 | [`isPrimary`](#awscdkeziezauroraglobalclusterpropspropertyisprimary) | `boolean` | Makes the cluster primary in the global cluster. |
-
----
-
-##### `engine`<sup>Required</sup> <a name="aws-cdk-ez.IEzAuroraGlobalClusterProps.property.engine" id="awscdkeziezauroraglobalclusterpropspropertyengine"></a>
-
-```typescript
-public readonly engine: IClusterEngine;
-```
-
-- *Type:* [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine)
-
-Database engine to use.
 
 ---
 
@@ -529,6 +518,19 @@ public readonly databaseClusterProps: DatabaseClusterProps;
 - *Default:* undefined
 
 Database cluster props, these will take precedence.
+
+---
+
+##### `engine`<sup>Optional</sup> <a name="aws-cdk-ez.IEzAuroraGlobalClusterProps.property.engine" id="awscdkeziezauroraglobalclusterpropspropertyengine"></a>
+
+```typescript
+public readonly engine: IClusterEngine;
+```
+
+- *Type:* [`aws-cdk-lib.aws_rds.IClusterEngine`](#aws-cdk-lib.aws_rds.IClusterEngine)
+- *Default:* PostgreSQL 13.4
+
+Database engine to use.
 
 ---
 

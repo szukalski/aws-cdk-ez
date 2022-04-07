@@ -1,6 +1,6 @@
 import { CfnOutput, RemovalPolicy } from 'aws-cdk-lib';
 import { InstanceClass, InstanceSize, InstanceType, IVpc, SubnetType } from 'aws-cdk-lib/aws-ec2';
-import { CfnDBCluster, CfnGlobalCluster, DatabaseCluster, DatabaseClusterProps, IClusterEngine } from 'aws-cdk-lib/aws-rds';
+import { AuroraPostgresEngineVersion, DatabaseClusterEngine, CfnDBCluster, CfnGlobalCluster, DatabaseCluster, DatabaseClusterProps, IClusterEngine } from 'aws-cdk-lib/aws-rds';
 import { Construct } from 'constructs';
 import { EzVpc } from '..';
 
@@ -10,8 +10,10 @@ import { EzVpc } from '..';
 export interface IEzAuroraClusterProps {
   /**
    * Database engine to use
+   *
+   * @default - PostgreSQL 13.4
    */
-  engine: IClusterEngine;
+  engine?: IClusterEngine;
 
   /**
    * VPC to deploy into.
@@ -74,7 +76,8 @@ export class EzAuroraCluster extends Construct {
     this.cluster = new DatabaseCluster(this, 'Cluster', {
       engine:
         props?.databaseClusterProps?.engine ??
-        props?.engine,
+        props?.engine ??
+        DatabaseClusterEngine.auroraPostgres({ version: AuroraPostgresEngineVersion.VER_13_4 }),
       instanceProps: {
         vpc: this.vpc,
         vpcSubnets: { subnetType: SubnetType.PRIVATE_ISOLATED },
