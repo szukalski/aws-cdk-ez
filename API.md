@@ -240,6 +240,65 @@ public readonly vpc: IVpc;
 ---
 
 
+### EzEc2KeyPair <a name="aws-cdk-ez.EzEc2KeyPair" id="awscdkezezec2keypair"></a>
+
+An EZ EC2 Key Pair.
+
+#### Initializers <a name="aws-cdk-ez.EzEc2KeyPair.Initializer" id="awscdkezezec2keypairinitializer"></a>
+
+```typescript
+import { EzEc2KeyPair } from 'aws-cdk-ez'
+
+new EzEc2KeyPair(scope: Construct, id: string, props: IEzEc2KeyPairProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`scope`](#awscdkezezec2keypairparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#awscdkezezec2keypairparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#awscdkezezec2keypairparameterprops)<span title="Required">*</span> | [`aws-cdk-ez.IEzEc2KeyPairProps`](#aws-cdk-ez.IEzEc2KeyPairProps) | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="aws-cdk-ez.EzEc2KeyPair.parameter.scope" id="awscdkezezec2keypairparameterscope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="aws-cdk-ez.EzEc2KeyPair.parameter.id" id="awscdkezezec2keypairparameterid"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Required</sup> <a name="aws-cdk-ez.EzEc2KeyPair.parameter.props" id="awscdkezezec2keypairparameterprops"></a>
+
+- *Type:* [`aws-cdk-ez.IEzEc2KeyPairProps`](#aws-cdk-ez.IEzEc2KeyPairProps)
+
+---
+
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`keyName`](#awscdkezezec2keypairpropertykeyname)<span title="Required">*</span> | `string` | *No description.* |
+
+---
+
+##### `keyName`<sup>Required</sup> <a name="aws-cdk-ez.EzEc2KeyPair.property.keyName" id="awscdkezezec2keypairpropertykeyname"></a>
+
+```typescript
+public readonly keyName: string;
+```
+
+- *Type:* `string`
+
+---
+
+
 ### EzEc2SsmRole <a name="aws-cdk-ez.EzEc2SsmRole" id="awscdkezezec2ssmrole"></a>
 
 An IAM Role for EC2 SSM management.
@@ -604,7 +663,6 @@ Definition of EZ EC2 Instance.
 | [`instanceType`](#awscdkeziezec2instancepropspropertyinstancetype) | [`aws-cdk-lib.aws_ec2.InstanceType`](#aws-cdk-lib.aws_ec2.InstanceType) | Instance Type to deploy. |
 | [`keyName`](#awscdkeziezec2instancepropspropertykeyname) | `string` | Name of RSA key to deploy instance with. |
 | [`machineImage`](#awscdkeziezec2instancepropspropertymachineimage) | [`aws-cdk-lib.aws_ec2.IMachineImage`](#aws-cdk-lib.aws_ec2.IMachineImage) | Machine image to deploy. |
-| [`publicKey`](#awscdkeziezec2instancepropspropertypublickey) | `string` | Public key to use. |
 | [`vpc`](#awscdkeziezec2instancepropspropertyvpc) | [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc) | VPC to deploy into. |
 
 ---
@@ -661,19 +719,6 @@ Machine image to deploy.
 
 ---
 
-##### `publicKey`<sup>Optional</sup> <a name="aws-cdk-ez.IEzEc2InstanceProps.property.publicKey" id="awscdkeziezec2instancepropspropertypublickey"></a>
-
-```typescript
-public readonly publicKey: string;
-```
-
-- *Type:* `string`
-- *Default:* undefined
-
-Public key to use.
-
----
-
 ##### `vpc`<sup>Optional</sup> <a name="aws-cdk-ez.IEzEc2InstanceProps.property.vpc" id="awscdkeziezec2instancepropspropertyvpc"></a>
 
 ```typescript
@@ -684,6 +729,48 @@ public readonly vpc: Vpc;
 - *Default:* undefined, if left undefined then a new VPC with private NAT subnets will be created.
 
 VPC to deploy into.
+
+---
+
+### IEzEc2KeyPairProps <a name="aws-cdk-ez.IEzEc2KeyPairProps" id="awscdkeziezec2keypairprops"></a>
+
+- *Implemented By:* [`aws-cdk-ez.IEzEc2KeyPairProps`](#aws-cdk-ez.IEzEc2KeyPairProps)
+
+Definition of EZ EC2 Key Pair.
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`keyName`](#awscdkeziezec2keypairpropspropertykeyname)<span title="Required">*</span> | `string` | Name of RSA key to deploy instance with. |
+| [`publicKey`](#awscdkeziezec2keypairpropspropertypublickey)<span title="Required">*</span> | `string` | Public key to use. |
+
+---
+
+##### `keyName`<sup>Required</sup> <a name="aws-cdk-ez.IEzEc2KeyPairProps.property.keyName" id="awscdkeziezec2keypairpropspropertykeyname"></a>
+
+```typescript
+public readonly keyName: string;
+```
+
+- *Type:* `string`
+- *Default:* undefined
+
+Name of RSA key to deploy instance with.
+
+---
+
+##### `publicKey`<sup>Required</sup> <a name="aws-cdk-ez.IEzEc2KeyPairProps.property.publicKey" id="awscdkeziezec2keypairpropspropertypublickey"></a>
+
+```typescript
+public readonly publicKey: string;
+```
+
+- *Type:* `string`
+- *Default:* undefined
+
+Public key to use.
 
 ---
 

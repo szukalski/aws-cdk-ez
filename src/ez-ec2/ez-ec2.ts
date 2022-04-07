@@ -1,7 +1,6 @@
 import { CfnOutput } from 'aws-cdk-lib';
 import { AmazonLinuxGeneration, IMachineImage, Instance, InstanceClass, InstanceProps, InstanceSize, InstanceType, IVpc, MachineImage, SecurityGroup, Vpc } from 'aws-cdk-lib/aws-ec2';
 import { IRole, ManagedPolicy, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
-import { KeyPair } from 'cdk-ec2-key-pair';
 import { Construct } from 'constructs';
 import { EzVpc } from '..';
 
@@ -46,13 +45,6 @@ export interface IEzEc2InstanceProps {
    * @default - undefined
    */
   keyName?: string;
-
-  /**
-   * Public key to use
-   *
-   * @default - undefined
-   */
-  publicKey?: string;
 
   /**
    * Machine image to deploy
@@ -113,14 +105,7 @@ export class EzEc2Instance extends Construct {
         MachineImage.latestAmazonLinux({
           generation: AmazonLinuxGeneration.AMAZON_LINUX_2,
         }),
-      keyName:
-        props?.keyName ??
-        props?.publicKey ?
-          new KeyPair(this, 'Key-Pair', {
-            name: 'davjrob-rsa',
-            publicKey: props?.publicKey,
-          }).keyPairName :
-          undefined,
+      keyName: props?.keyName,
       ...props?.instanceProps,
     },
     );
