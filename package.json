@@ -60,6 +60,10 @@
     "aws-cdk-lib": "^2.8.0",
     "constructs": "^10.0.5"
   },
+  "dependencies": {
+    "cdk-ec2-key-pair": "^3.2.0",
+    "cdk-iam-floyd": "^0.350.0"
+  },
   "keywords": [
     "cdk"
   ],

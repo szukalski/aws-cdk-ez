@@ -888,6 +888,11 @@
     "@typescript-eslint/types" "5.9.1"
     eslint-visitor-keys "^3.0.0"
 
+"@udondan/common-substrings@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@udondan/common-substrings/-/common-substrings-3.0.2.tgz#22e90b6d4eaa640e491badee9ae678a3372c572b"
+  integrity sha512-Sc8lNnubj2NtH6zj13K8ADohTnwvXBSp6NWV0LDvia/xfIGHvOhKOHjL7AM9+5lVL3LcIHl85mwpn9LYYhyxuw==
+
 "@xmldom/xmldom@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.0.tgz#9f83fd9b3506c9603baad67e44eb6e6ee8eee0ce"
@@ -1327,6 +1332,19 @@ case@1.6.3, case@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
+
+cdk-ec2-key-pair@*:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/cdk-ec2-key-pair/-/cdk-ec2-key-pair-3.2.0.tgz#f9b1a46bb8365b64a65ec1c2981bc134ab4b63aa"
+  integrity sha512-fTWLYxQrln1ztiBLcGvF1pMHsFckqCSkBai1k25E+qA4PqiSAwAaw7gCo3oETZ6TFKnN6og2gkmmItbzyjZqJw==
+
+cdk-iam-floyd@*:
+  version "0.350.0"
+  resolved "https://registry.yarnpkg.com/cdk-iam-floyd/-/cdk-iam-floyd-0.350.0.tgz#946f1f9d2d2e0a499bf356657ca9af8f2978d41f"
+  integrity sha512-T/CgZ/JTKMIrkh4IW3x2zar9+lUgsQIWLTnCcBdeF4SVVmICOw3VEA6Wh1G5YyGRdFeIqqmy4LsBMAdiyk7Qvg==
+  dependencies:
+    "@udondan/common-substrings" "^3.0.2"
+    regex-parser "^2.2.11"
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
@@ -4926,6 +4944,11 @@ redent@^3.0.0:
   dependencies:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
+
+regex-parser@^2.2.11:
+  version "2.2.11"
+  resolved "https://registry.yarnpkg.com/regex-parser/-/regex-parser-2.2.11.tgz#3b37ec9049e19479806e878cabe7c1ca83ccfe58"
+  integrity sha512-jbD/FT0+9MBU2XAZluI7w2OBs1RBi6p9M83nkoZayQXXU9e8Robt69FcZc7wU4eJD/YFTjn1JdCk3rbMJajz8Q==
 
 regexp.prototype.flags@^1.3.0:
   version "1.4.1"

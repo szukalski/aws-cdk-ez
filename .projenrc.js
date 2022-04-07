@@ -16,6 +16,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'git@github.com:szukalski/aws-cdk-ez.git',
   npmDistTag: 'latest',
   releaseToNpm: true,
+  deps: ['cdk-ec2-key-pair', 'cdk-iam-floyd'],
   //...disableGithub,
 
   // deps: [],                /* Runtime dependencies of this module. */
