@@ -9,14 +9,14 @@ const { awscdk } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'David Roberts',
   authorAddress: 'szukalski@gmail.com',
-  cdkVersion: '2.8.0',
+  cdkVersion: '2.19.0',
   defaultReleaseBranch: 'main',
   name: 'aws-cdk-ez',
   license: 'MIT',
   repositoryUrl: 'git@github.com:szukalski/aws-cdk-ez.git',
   npmDistTag: 'latest',
   releaseToNpm: true,
-  deps: ['cdk-ec2-key-pair', 'cdk-iam-floyd'],
+  deps: ['cdk-ec2-key-pair@3.2.0', 'cdk-iam-floyd@0.300.0'],
   //...disableGithub,
 
   // deps: [],                /* Runtime dependencies of this module. */

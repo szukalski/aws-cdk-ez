@@ -604,6 +604,7 @@ Definition of EZ EC2 Instance.
 | [`instanceType`](#awscdkeziezec2instancepropspropertyinstancetype) | [`aws-cdk-lib.aws_ec2.InstanceType`](#aws-cdk-lib.aws_ec2.InstanceType) | Instance Type to deploy. |
 | [`keyName`](#awscdkeziezec2instancepropspropertykeyname) | `string` | Name of RSA key to deploy instance with. |
 | [`machineImage`](#awscdkeziezec2instancepropspropertymachineimage) | [`aws-cdk-lib.aws_ec2.IMachineImage`](#aws-cdk-lib.aws_ec2.IMachineImage) | Machine image to deploy. |
+| [`publicKey`](#awscdkeziezec2instancepropspropertypublickey) | `string` | Public key to use. |
 | [`vpc`](#awscdkeziezec2instancepropspropertyvpc) | [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc) | VPC to deploy into. |
 
 ---
@@ -657,6 +658,19 @@ public readonly machineImage: IMachineImage;
 - *Default:* Latest Amazon Linux 2
 
 Machine image to deploy.
+
+---
+
+##### `publicKey`<sup>Optional</sup> <a name="aws-cdk-ez.IEzEc2InstanceProps.property.publicKey" id="awscdkeziezec2instancepropspropertypublickey"></a>
+
+```typescript
+public readonly publicKey: string;
+```
+
+- *Type:* `string`
+- *Default:* undefined
+
+Public key to use.
 
 ---
 
