@@ -351,6 +351,46 @@ public readonly role: Role;
 ---
 
 
+### EzPostgresLambdaQuery <a name="aws-cdk-ez.EzPostgresLambdaQuery" id="awscdkezezpostgreslambdaquery"></a>
+
+#### Initializers <a name="aws-cdk-ez.EzPostgresLambdaQuery.Initializer" id="awscdkezezpostgreslambdaqueryinitializer"></a>
+
+```typescript
+import { EzPostgresLambdaQuery } from 'aws-cdk-ez'
+
+new EzPostgresLambdaQuery(scope: Construct, id: string, props: IEzPostgresLambdaQueryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`scope`](#awscdkezezpostgreslambdaqueryparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#awscdkezezpostgreslambdaqueryparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#awscdkezezpostgreslambdaqueryparameterprops)<span title="Required">*</span> | [`aws-cdk-ez.IEzPostgresLambdaQueryProps`](#aws-cdk-ez.IEzPostgresLambdaQueryProps) | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="aws-cdk-ez.EzPostgresLambdaQuery.parameter.scope" id="awscdkezezpostgreslambdaqueryparameterscope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="aws-cdk-ez.EzPostgresLambdaQuery.parameter.id" id="awscdkezezpostgreslambdaqueryparameterid"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Required</sup> <a name="aws-cdk-ez.EzPostgresLambdaQuery.parameter.props" id="awscdkezezpostgreslambdaqueryparameterprops"></a>
+
+- *Type:* [`aws-cdk-ez.IEzPostgresLambdaQueryProps`](#aws-cdk-ez.IEzPostgresLambdaQueryProps)
+
+---
+
+
+
+
+
 ### EzS3Bucket <a name="aws-cdk-ez.EzS3Bucket" id="awscdkezezs3bucket"></a>
 
 An EZ S3 Bucket.
@@ -771,6 +811,62 @@ public readonly publicKey: string;
 - *Default:* undefined
 
 Public key to use.
+
+---
+
+### IEzPostgresLambdaQueryProps <a name="aws-cdk-ez.IEzPostgresLambdaQueryProps" id="awscdkeziezpostgreslambdaqueryprops"></a>
+
+- *Implemented By:* [`aws-cdk-ez.IEzPostgresLambdaQueryProps`](#aws-cdk-ez.IEzPostgresLambdaQueryProps)
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`databaseCluster`](#awscdkeziezpostgreslambdaquerypropspropertydatabasecluster)<span title="Required">*</span> | [`aws-cdk-lib.aws_rds.DatabaseCluster`](#aws-cdk-lib.aws_rds.DatabaseCluster) | *No description.* |
+| [`functionName`](#awscdkeziezpostgreslambdaquerypropspropertyfunctionname) | `string` | *No description.* |
+| [`timeout`](#awscdkeziezpostgreslambdaquerypropspropertytimeout) | [`aws-cdk-lib.Duration`](#aws-cdk-lib.Duration) | *No description.* |
+| [`vpc`](#awscdkeziezpostgreslambdaquerypropspropertyvpc) | [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc) | *No description.* |
+
+---
+
+##### `databaseCluster`<sup>Required</sup> <a name="aws-cdk-ez.IEzPostgresLambdaQueryProps.property.databaseCluster" id="awscdkeziezpostgreslambdaquerypropspropertydatabasecluster"></a>
+
+```typescript
+public readonly databaseCluster: DatabaseCluster;
+```
+
+- *Type:* [`aws-cdk-lib.aws_rds.DatabaseCluster`](#aws-cdk-lib.aws_rds.DatabaseCluster)
+
+---
+
+##### `functionName`<sup>Optional</sup> <a name="aws-cdk-ez.IEzPostgresLambdaQueryProps.property.functionName" id="awscdkeziezpostgreslambdaquerypropspropertyfunctionname"></a>
+
+```typescript
+public readonly functionName: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="aws-cdk-ez.IEzPostgresLambdaQueryProps.property.timeout" id="awscdkeziezpostgreslambdaquerypropspropertytimeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* [`aws-cdk-lib.Duration`](#aws-cdk-lib.Duration)
+
+---
+
+##### `vpc`<sup>Optional</sup> <a name="aws-cdk-ez.IEzPostgresLambdaQueryProps.property.vpc" id="awscdkeziezpostgreslambdaquerypropspropertyvpc"></a>
+
+```typescript
+public readonly vpc: Vpc;
+```
+
+- *Type:* [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc)
 
 ---
 
