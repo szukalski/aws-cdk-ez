@@ -17,6 +17,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   npmDistTag: 'latest',
   releaseToNpm: true,
   deps: ['cdk-ec2-key-pair@3.2.0', 'cdk-iam-floyd@0.300.0'],
+  devDeps: ['yarn'],
   //...disableGithub,
 
   // deps: [],                /* Runtime dependencies of this module. */

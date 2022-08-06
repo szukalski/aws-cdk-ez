@@ -351,6 +351,85 @@ public readonly role: Role;
 ---
 
 
+### EzHugoS3 <a name="aws-cdk-ez.EzHugoS3" id="awscdkezezhugos3"></a>
+
+#### Initializers <a name="aws-cdk-ez.EzHugoS3.Initializer" id="awscdkezezhugos3initializer"></a>
+
+```typescript
+import { EzHugoS3 } from 'aws-cdk-ez'
+
+new EzHugoS3(scope: Construct, id: string, props: IEzHugoS3Props)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`scope`](#awscdkezezhugos3parameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#awscdkezezhugos3parameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#awscdkezezhugos3parameterprops)<span title="Required">*</span> | [`aws-cdk-ez.IEzHugoS3Props`](#aws-cdk-ez.IEzHugoS3Props) | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="aws-cdk-ez.EzHugoS3.parameter.scope" id="awscdkezezhugos3parameterscope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="aws-cdk-ez.EzHugoS3.parameter.id" id="awscdkezezhugos3parameterid"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Required</sup> <a name="aws-cdk-ez.EzHugoS3.parameter.props" id="awscdkezezhugos3parameterprops"></a>
+
+- *Type:* [`aws-cdk-ez.IEzHugoS3Props`](#aws-cdk-ez.IEzHugoS3Props)
+
+---
+
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`domainName`](#awscdkezezhugos3propertydomainname)<span title="Required">*</span> | `string` | *No description.* |
+| [`publicDir`](#awscdkezezhugos3propertypublicdir)<span title="Required">*</span> | `string` | *No description.* |
+| [`region`](#awscdkezezhugos3propertyregion) | `string` | *No description.* |
+
+---
+
+##### `domainName`<sup>Required</sup> <a name="aws-cdk-ez.EzHugoS3.property.domainName" id="awscdkezezhugos3propertydomainname"></a>
+
+```typescript
+public readonly domainName: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `publicDir`<sup>Required</sup> <a name="aws-cdk-ez.EzHugoS3.property.publicDir" id="awscdkezezhugos3propertypublicdir"></a>
+
+```typescript
+public readonly publicDir: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `region`<sup>Optional</sup> <a name="aws-cdk-ez.EzHugoS3.property.region" id="awscdkezezhugos3propertyregion"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* `string`
+
+---
+
+
 ### EzPostgresLambdaQuery <a name="aws-cdk-ez.EzPostgresLambdaQuery" id="awscdkezezpostgreslambdaquery"></a>
 
 #### Initializers <a name="aws-cdk-ez.EzPostgresLambdaQuery.Initializer" id="awscdkezezpostgreslambdaqueryinitializer"></a>
@@ -811,6 +890,48 @@ public readonly publicKey: string;
 - *Default:* undefined
 
 Public key to use.
+
+---
+
+### IEzHugoS3Props <a name="aws-cdk-ez.IEzHugoS3Props" id="awscdkeziezhugos3props"></a>
+
+- *Implemented By:* [`aws-cdk-ez.IEzHugoS3Props`](#aws-cdk-ez.IEzHugoS3Props)
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`domainName`](#awscdkeziezhugos3propspropertydomainname)<span title="Required">*</span> | `string` | Domain name of the site deploying to. |
+| [`publicDir`](#awscdkeziezhugos3propspropertypublicdir)<span title="Required">*</span> | `string` | Path to Hugo public directory, which is generated after running the `hugo` command. |
+
+---
+
+##### `domainName`<sup>Required</sup> <a name="aws-cdk-ez.IEzHugoS3Props.property.domainName" id="awscdkeziezhugos3propspropertydomainname"></a>
+
+```typescript
+public readonly domainName: string;
+```
+
+- *Type:* `string`
+
+Domain name of the site deploying to.
+
+You should already have a hosted zone in the account you're deploying to with this domain name
+
+---
+
+##### `publicDir`<sup>Required</sup> <a name="aws-cdk-ez.IEzHugoS3Props.property.publicDir" id="awscdkeziezhugos3propspropertypublicdir"></a>
+
+```typescript
+public readonly publicDir: string;
+```
+
+- *Type:* `string`
+
+Path to Hugo public directory, which is generated after running the `hugo` command.
+
+By default, this will be the `public` directory in your hugo project
 
 ---
 
