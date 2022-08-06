@@ -60,6 +60,7 @@ export class EzHugoS3 extends Construct {
     const certificate = new DnsValidatedCertificate(this, 'Certificate', {
       hostedZone: zone,
       domainName: this.domainName,
+      region: this.region,
     });
 
     const cfFunction = new Function(this, 'HugoPaths', {
