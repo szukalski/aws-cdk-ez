@@ -30,6 +30,13 @@ export interface IEzHugoS3Props {
    * You should already have a hosted zone in the account you're deploying to with this domain name
    */
   readonly domainName: string;
+
+  /**
+   * Region deploying to
+   *
+   * @default - us-east-1
+   */
+  readonly region?: string;
 }
 
 export class EzHugoS3 extends Construct {
@@ -42,6 +49,7 @@ export class EzHugoS3 extends Construct {
 
     this.publicDir = props.publicDir;
     this.domainName = props.domainName;
+    this.region = props.region ? props.region : 'us-east-1';
 
     const bucket = new Bucket(this, 'WebsiteBucket', {
       publicReadAccess: false,

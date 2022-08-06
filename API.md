@@ -904,6 +904,7 @@ Public key to use.
 | --- | --- | --- |
 | [`domainName`](#awscdkeziezhugos3propspropertydomainname)<span title="Required">*</span> | `string` | Domain name of the site deploying to. |
 | [`publicDir`](#awscdkeziezhugos3propspropertypublicdir)<span title="Required">*</span> | `string` | Path to Hugo public directory, which is generated after running the `hugo` command. |
+| [`region`](#awscdkeziezhugos3propspropertyregion) | `string` | Region deploying to. |
 
 ---
 
@@ -932,6 +933,19 @@ public readonly publicDir: string;
 Path to Hugo public directory, which is generated after running the `hugo` command.
 
 By default, this will be the `public` directory in your hugo project
+
+---
+
+##### `region`<sup>Optional</sup> <a name="aws-cdk-ez.IEzHugoS3Props.property.region" id="awscdkeziezhugos3propspropertyregion"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* `string`
+- *Default:* us-east-1
+
+Region deploying to.
 
 ---
 
