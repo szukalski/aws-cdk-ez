@@ -130,13 +130,8 @@
       "type": "peer"
     },
     {
-      "name": "cdk-ec2-key-pair",
-      "version": "3.2.0",
-      "type": "runtime"
-    },
-    {
-      "name": "cdk-iam-floyd",
-      "version": "0.300.0",
+      "name": "@aws-cdk/aws-lambda-go-alpha",
+      "version": "^2.45.0-alpha",
       "type": "runtime"
     }
   ],
