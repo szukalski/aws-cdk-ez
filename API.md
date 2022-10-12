@@ -240,65 +240,6 @@ public readonly vpc: IVpc;
 ---
 
 
-### EzEc2KeyPair <a name="aws-cdk-ez.EzEc2KeyPair" id="awscdkezezec2keypair"></a>
-
-An EZ EC2 Key Pair.
-
-#### Initializers <a name="aws-cdk-ez.EzEc2KeyPair.Initializer" id="awscdkezezec2keypairinitializer"></a>
-
-```typescript
-import { EzEc2KeyPair } from 'aws-cdk-ez'
-
-new EzEc2KeyPair(scope: Construct, id: string, props: IEzEc2KeyPairProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| [`scope`](#awscdkezezec2keypairparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
-| [`id`](#awscdkezezec2keypairparameterid)<span title="Required">*</span> | `string` | *No description.* |
-| [`props`](#awscdkezezec2keypairparameterprops)<span title="Required">*</span> | [`aws-cdk-ez.IEzEc2KeyPairProps`](#aws-cdk-ez.IEzEc2KeyPairProps) | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="aws-cdk-ez.EzEc2KeyPair.parameter.scope" id="awscdkezezec2keypairparameterscope"></a>
-
-- *Type:* [`constructs.Construct`](#constructs.Construct)
-
----
-
-##### `id`<sup>Required</sup> <a name="aws-cdk-ez.EzEc2KeyPair.parameter.id" id="awscdkezezec2keypairparameterid"></a>
-
-- *Type:* `string`
-
----
-
-##### `props`<sup>Required</sup> <a name="aws-cdk-ez.EzEc2KeyPair.parameter.props" id="awscdkezezec2keypairparameterprops"></a>
-
-- *Type:* [`aws-cdk-ez.IEzEc2KeyPairProps`](#aws-cdk-ez.IEzEc2KeyPairProps)
-
----
-
-
-
-#### Properties <a name="Properties" id="properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| [`keyName`](#awscdkezezec2keypairpropertykeyname)<span title="Required">*</span> | `string` | *No description.* |
-
----
-
-##### `keyName`<sup>Required</sup> <a name="aws-cdk-ez.EzEc2KeyPair.property.keyName" id="awscdkezezec2keypairpropertykeyname"></a>
-
-```typescript
-public readonly keyName: string;
-```
-
-- *Type:* `string`
-
----
-
-
 ### EzEc2SsmRole <a name="aws-cdk-ez.EzEc2SsmRole" id="awscdkezezec2ssmrole"></a>
 
 An IAM Role for EC2 SSM management.
@@ -428,6 +369,46 @@ public readonly region: string;
 - *Type:* `string`
 
 ---
+
+
+### EzLambdaGoFunction <a name="aws-cdk-ez.EzLambdaGoFunction" id="awscdkezezlambdagofunction"></a>
+
+#### Initializers <a name="aws-cdk-ez.EzLambdaGoFunction.Initializer" id="awscdkezezlambdagofunctioninitializer"></a>
+
+```typescript
+import { EzLambdaGoFunction } from 'aws-cdk-ez'
+
+new EzLambdaGoFunction(scope: Construct, id: string, props: IEzLambdaGoProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`scope`](#awscdkezezlambdagofunctionparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#awscdkezezlambdagofunctionparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#awscdkezezlambdagofunctionparameterprops)<span title="Required">*</span> | [`aws-cdk-ez.IEzLambdaGoProps`](#aws-cdk-ez.IEzLambdaGoProps) | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="aws-cdk-ez.EzLambdaGoFunction.parameter.scope" id="awscdkezezlambdagofunctionparameterscope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="aws-cdk-ez.EzLambdaGoFunction.parameter.id" id="awscdkezezlambdagofunctionparameterid"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Required</sup> <a name="aws-cdk-ez.EzLambdaGoFunction.parameter.props" id="awscdkezezlambdagofunctionparameterprops"></a>
+
+- *Type:* [`aws-cdk-ez.IEzLambdaGoProps`](#aws-cdk-ez.IEzLambdaGoProps)
+
+---
+
+
+
 
 
 ### EzPostgresLambdaQuery <a name="aws-cdk-ez.EzPostgresLambdaQuery" id="awscdkezezpostgreslambdaquery"></a>
@@ -851,48 +832,6 @@ VPC to deploy into.
 
 ---
 
-### IEzEc2KeyPairProps <a name="aws-cdk-ez.IEzEc2KeyPairProps" id="awscdkeziezec2keypairprops"></a>
-
-- *Implemented By:* [`aws-cdk-ez.IEzEc2KeyPairProps`](#aws-cdk-ez.IEzEc2KeyPairProps)
-
-Definition of EZ EC2 Key Pair.
-
-
-#### Properties <a name="Properties" id="properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| [`keyName`](#awscdkeziezec2keypairpropspropertykeyname)<span title="Required">*</span> | `string` | Name of RSA key to deploy instance with. |
-| [`publicKey`](#awscdkeziezec2keypairpropspropertypublickey)<span title="Required">*</span> | `string` | Public key to use. |
-
----
-
-##### `keyName`<sup>Required</sup> <a name="aws-cdk-ez.IEzEc2KeyPairProps.property.keyName" id="awscdkeziezec2keypairpropspropertykeyname"></a>
-
-```typescript
-public readonly keyName: string;
-```
-
-- *Type:* `string`
-- *Default:* undefined
-
-Name of RSA key to deploy instance with.
-
----
-
-##### `publicKey`<sup>Required</sup> <a name="aws-cdk-ez.IEzEc2KeyPairProps.property.publicKey" id="awscdkeziezec2keypairpropspropertypublickey"></a>
-
-```typescript
-public readonly publicKey: string;
-```
-
-- *Type:* `string`
-- *Default:* undefined
-
-Public key to use.
-
----
-
 ### IEzHugoS3Props <a name="aws-cdk-ez.IEzHugoS3Props" id="awscdkeziezhugos3props"></a>
 
 - *Implemented By:* [`aws-cdk-ez.IEzHugoS3Props`](#aws-cdk-ez.IEzHugoS3Props)
@@ -946,6 +885,73 @@ public readonly region: string;
 - *Default:* us-east-1
 
 Region deploying to.
+
+---
+
+### IEzLambdaGoProps <a name="aws-cdk-ez.IEzLambdaGoProps" id="awscdkeziezlambdagoprops"></a>
+
+- *Implemented By:* [`aws-cdk-ez.IEzLambdaGoProps`](#aws-cdk-ez.IEzLambdaGoProps)
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`entry`](#awscdkeziezlambdagopropspropertyentry)<span title="Required">*</span> | `string` | *No description.* |
+| [`functionName`](#awscdkeziezlambdagopropspropertyfunctionname) | `string` | *No description.* |
+| [`goFunctionProps`](#awscdkeziezlambdagopropspropertygofunctionprops) | [`@aws-cdk/aws-lambda-go-alpha.GoFunctionProps`](#@aws-cdk/aws-lambda-go-alpha.GoFunctionProps) | *No description.* |
+| [`timeout`](#awscdkeziezlambdagopropspropertytimeout) | [`aws-cdk-lib.Duration`](#aws-cdk-lib.Duration) | *No description.* |
+| [`vpc`](#awscdkeziezlambdagopropspropertyvpc) | [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc) | *No description.* |
+
+---
+
+##### `entry`<sup>Required</sup> <a name="aws-cdk-ez.IEzLambdaGoProps.property.entry" id="awscdkeziezlambdagopropspropertyentry"></a>
+
+```typescript
+public readonly entry: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `functionName`<sup>Optional</sup> <a name="aws-cdk-ez.IEzLambdaGoProps.property.functionName" id="awscdkeziezlambdagopropspropertyfunctionname"></a>
+
+```typescript
+public readonly functionName: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `goFunctionProps`<sup>Optional</sup> <a name="aws-cdk-ez.IEzLambdaGoProps.property.goFunctionProps" id="awscdkeziezlambdagopropspropertygofunctionprops"></a>
+
+```typescript
+public readonly goFunctionProps: GoFunctionProps;
+```
+
+- *Type:* [`@aws-cdk/aws-lambda-go-alpha.GoFunctionProps`](#@aws-cdk/aws-lambda-go-alpha.GoFunctionProps)
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="aws-cdk-ez.IEzLambdaGoProps.property.timeout" id="awscdkeziezlambdagopropspropertytimeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* [`aws-cdk-lib.Duration`](#aws-cdk-lib.Duration)
+
+---
+
+##### `vpc`<sup>Optional</sup> <a name="aws-cdk-ez.IEzLambdaGoProps.property.vpc" id="awscdkeziezlambdagopropspropertyvpc"></a>
+
+```typescript
+public readonly vpc: Vpc;
+```
+
+- *Type:* [`aws-cdk-lib.aws_ec2.Vpc`](#aws-cdk-lib.aws_ec2.Vpc)
 
 ---
 
