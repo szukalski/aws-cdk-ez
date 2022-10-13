@@ -17,6 +17,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   npmDistTag: 'latest',
   releaseToNpm: true,
   devDeps: ['yarn'],
+  deps: ['@aws-cdk/aws-lambda-go-alpha@^2.45.0-alpha.0'],
   peerDeps: ['@aws-cdk/aws-lambda-go-alpha@^2.45.0-alpha.0'],
   //...disableGithub,
 
