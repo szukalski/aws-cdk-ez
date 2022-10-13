@@ -16,8 +16,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'git@github.com:szukalski/aws-cdk-ez.git',
   npmDistTag: 'latest',
   releaseToNpm: true,
-  deps: ['@aws-cdk/aws-lambda-go-alpha@^2.45.0-alpha'],
   devDeps: ['yarn'],
+  peerDeps: ['@aws-cdk/aws-lambda-go-alpha@^2.45.0-alpha.0'],
   //...disableGithub,
 
   // deps: [],                /* Runtime dependencies of this module. */
