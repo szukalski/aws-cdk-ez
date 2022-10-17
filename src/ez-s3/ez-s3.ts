@@ -101,6 +101,12 @@ export class EzS3Bucket extends Construct {
           value: distribution.distributionDomainName,
         },
       );
+      new CfnOutput(
+        this,
+        'DistributionId', {
+          value: distribution.distributionId,
+        },
+      );
     }
   }
 }
