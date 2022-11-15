@@ -85,7 +85,7 @@ export class EzVpc extends Construct {
       subnetConfiguration.push(
         {
           name: 'privatenat-',
-          subnetType: SubnetType.PRIVATE_WITH_NAT,
+          subnetType: SubnetType.PRIVATE_WITH_EGRESS,
           cidrMask: 28,
         },
       );
