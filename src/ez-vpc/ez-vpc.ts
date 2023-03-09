@@ -77,7 +77,7 @@ export class EzVpc extends Construct {
         {
           name: 'public-',
           subnetType: SubnetType.PUBLIC,
-          cidrMask: 28,
+          cidrMask: 24,
         },
       );
     }
@@ -86,7 +86,7 @@ export class EzVpc extends Construct {
         {
           name: 'privatenat-',
           subnetType: SubnetType.PRIVATE_WITH_EGRESS,
-          cidrMask: 28,
+          cidrMask: 24,
         },
       );
     }
@@ -95,7 +95,7 @@ export class EzVpc extends Construct {
         {
           name: 'privateisolated-',
           subnetType: SubnetType.PRIVATE_ISOLATED,
-          cidrMask: 28,
+          cidrMask: 24,
         },
       );
     }
