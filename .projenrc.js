@@ -9,7 +9,7 @@ const { awscdk } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'David Roberts',
   authorAddress: 'szukalski@gmail.com',
-  cdkVersion: '2.95.1',
+  cdkVersion: '2.99.1',
   defaultReleaseBranch: 'main',
   name: 'aws-cdk-ez',
   license: 'MIT',
