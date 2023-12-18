@@ -1,11 +1,11 @@
 const { awscdk } = require('projen');
-// const disableGithub = {
-//   buildWorkflow: false,
-//   releaseWorkflow: false,
-//   pullRequestTemplate: false,
-//   dependabot: false,
-//   mergify: false,
-// };
+const disableGithub = {
+  buildWorkflow: false,
+  releaseWorkflow: false,
+  pullRequestTemplate: false,
+  dependabot: false,
+  mergify: false,
+};
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'David Roberts',
   authorAddress: 'szukalski@gmail.com',
@@ -19,7 +19,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   devDeps: ['yarn'],
   deps: ['@aws-cdk/aws-lambda-go-alpha'],
   //peerDeps: ['@aws-cdk/aws-lambda-go-alpha@^2.45.0-alpha.0'],
-  //...disableGithub,
+  ...disableGithub,
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
